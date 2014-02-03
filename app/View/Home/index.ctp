@@ -1,0 +1,1 @@
+<img style="width:100%;" src="/img/rsc/42shop.png" alt="42shop" />
