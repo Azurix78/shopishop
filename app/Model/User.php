@@ -49,9 +49,9 @@ class User extends AppModel
             'message'    => 'Entrez une date valide',
             'allowEmpty' => false,
         ),   
-        'civility' => array(
-            'isCivility' => array(
-                'rule' => array('isCivility', 'civility'),
+        'title' => array(
+            'isTitle' => array(
+                'rule' => array('isTitle', 'title'),
                 'message' => 'Civilité invalide'
                 ),
         ), 
@@ -66,9 +66,9 @@ class User extends AppModel
 
     );
 
-    public function isCivility($field)
+    public function isTitle($field)
     {
-        if (isset($this->data['User']['civility']) && ($this->data['User']['civility'] == 'M.' OR $this->data['User']['civility'] == 'Mme'))
+        if (isset($this->data['User']['title']) && ($this->data['User']['title'] == 'M.' OR $this->data['User']['title'] == 'Mme'))
         {
             return true;
         }

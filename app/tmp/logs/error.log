@@ -2065,3 +2065,106 @@ Request URL: /img/rsc/favicon.ico
 Stack Trace:
 #0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-02-04 08:34:13 Error: [BadRequestException] The request has been black-holed
+Request URL: /Users/register
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/lib/Cake/Controller/Component/SecurityComponent.php(242): SecurityComponent->blackHole(Object(UsersController), 'csrf')
+#1 [internal function]: SecurityComponent->startup(Object(UsersController))
+#2 /Users/rubio_n/Documents/Sites/E-commerce/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#3 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#4 /Users/rubio_n/Documents/Sites/E-commerce/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#5 /Users/rubio_n/Documents/Sites/E-commerce/lib/Cake/Controller/Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/rubio_n/Documents/Sites/E-commerce/lib/Cake/Routing/Dispatcher.php(182): Controller->startupProcess()
+#7 /Users/rubio_n/Documents/Sites/E-commerce/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-02-04 13:41:37 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings-white.png
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:43:03 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings-white.png
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:43:03 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/rsc/favicon.ico
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:43:45 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/rsc/favicon.ico
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:43:59 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /user
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:44:02 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /user/register
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:44:07 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /User/register
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:49:52 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /user/register
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:49:55 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/rsc/favicon.ico
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-04 13:49:55 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/rsc/favicon.ico
+Stack Trace:
+#0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

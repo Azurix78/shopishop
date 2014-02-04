@@ -1,9 +1,6 @@
 <?php
-class OrdersController extends AppController
+class AddressesController extends AppController
 {
-
-	public $uses = array('Orders_user', 'Orders_visitor');
-
 	function beforeFilter()
 	{
 		parent::beforeFilter();
