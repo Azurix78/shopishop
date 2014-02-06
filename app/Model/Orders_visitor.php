@@ -2,11 +2,6 @@
 class Orders_visitor extends AppModel
 {
     public $validate = array(
-        'id_user' => array(
-            'rule'      => 'numeric',
-            'message'   => 'Utilisateur invalide',
-            'allowEmpty' => false,
-        ),
         'gift_wrap' => array(
             'rule'       => 'numeric',
             'message'    => 'Vous devez choisir un emballage',

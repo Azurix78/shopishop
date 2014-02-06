@@ -12,7 +12,7 @@ class Category extends AppModel
             'message'   => 'Vous devez rentrer une couleur pour votre catégorie',
             'allowEmpty' => false,
         ),
-        'id_picture' => array(
+        'picture_id' => array(
             'rule'      => '[0-9]+',
             'message'   => 'Image invalide',
             'allowEmpty' => false,

@@ -8,7 +8,6 @@
 		<?php
 			echo $this->Html->css('style');
 			echo $this->Html->css('bootstrap');
-			//echo $this->Html->css('cake.generic');
 			echo $this->fetch('css');
 		?>
 	</head>
@@ -22,11 +21,17 @@
 					<a href="#">Home</a>
 					<a href="#">Products</a>
 					<a href="#">Contact</a>
+					<a id="panier" href="#">Panier</a>
+					<div id="header_search">
+						<form class="search">
+							<input type="text" placeholder="search" />
+							<input type="submit" value="" />
+						</form>
+					</div>
 				</nav>
 			</header>
 			<div id="content">
 				<?php echo $this->Session->flash(); ?>
-
 				<?php echo $this->fetch('content'); ?>
 			</div>
 			<footer></footer>

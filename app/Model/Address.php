@@ -1,6 +1,8 @@
 <?php
 class Address extends AppModel
 {
+    
+
     public $validate = array(
         'lastname' => array(
             'rule'      => 'notEmpty',
@@ -17,7 +19,7 @@ class Address extends AppModel
             'message'   => 'Vous devez rentrer une adresse',
             'allowEmpty' => false,
         ),
-        'id_user' => array(
+        'user_id' => array(
             'rule'       => 'numeric',
             'message'    => 'Utilisateur invalide',
             'allowEmpty' => false,

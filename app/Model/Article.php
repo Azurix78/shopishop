@@ -32,12 +32,12 @@ class Article extends AppModel
             'message'   => 'Vous devez rentrer un prix',
             'allowEmpty' => false,
         ),
-        'id_product' => array(
+        'product_id' => array(
             'rule'      => 'numeric',
             'message'   => 'Produit invalide',
             'allowEmpty' => false,
         ),
-        'id_picture' => array(
+        'picture_id' => array(
             'rule'      => 'numeric',
             'message'   => 'Image invalide',
             'allowEmpty' => false,

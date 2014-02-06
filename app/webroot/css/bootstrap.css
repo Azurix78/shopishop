@@ -1193,3 +1193,67 @@ header nav a{
 header nav a:hover{
   text-decoration: none;
 }
+
+#header_search{
+  display: inline-block;
+  line-height: 80px;
+}
+
+.search
+{
+  display: inline-block;
+  background-color: #3e3e3e;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 3px;
+  padding: 0 4px;
+  vertical-align: middle;
+  font-family: 'Molengo', sans-serif;
+  width: auto;
+}
+
+.search input[type="text"]{
+  display: inline-block;
+  margin: 0;
+  padding: 0 5px;
+  height: 32px;
+  border-radius: 2px;
+  margin-top: 4px;
+  vertical-align: top;
+  font-size: 0.8em;
+  width: 150px;
+}
+
+.search input[type="submit"]{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: 35px;
+  border-radius: 2px;
+  margin-top: 2.5px;
+  vertical-align: top;
+  width: 30px;
+  height: 35px;
+  background: transparent url(../img/icon-loupe.png) center no-repeat;
+}
+
+#panier
+{
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 3px;
+  padding: 0 10px 0 0;
+  vertical-align: middle;
+  font-family: 'Molengo', sans-serif;
+  width: 70px;
+  text-align: right;
+  text-transform: normal;
+  color: #d1d1d1;
+  border: solid #cacaca 1px;
+  background: transparent url(../img/panier.png) 5px center no-repeat;
+}

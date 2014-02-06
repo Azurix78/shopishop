@@ -12,22 +12,22 @@ class Product extends AppModel
             'message'   => 'Vous devez rentrer une catégorie',
             'allowEmpty' => false,
         ),
-        'id_picture' => array(
+        'picture_id' => array(
             'rule'      => '[0-9]+',
             'message'   => 'Image invalide',
             'allowEmpty' => false,
         ),
-        'id_category' => array(
+        'category_id' => array(
             'rule'      => '[0-9]+',
             'message'   => 'Catégorie invalide',
             'allowEmpty' => false,
         ),
-        'id_brand' => array(
+        'brand_id' => array(
             'rule'      => '[0-9]+',
             'message'   => 'Marque invalide',
             'allowEmpty' => false,
         ),
-        'id_promo' => array(
+        'promo_id' => array(
             'rule'      => '[0-9]+',
             'message'   => 'Promotion invalide',
             'allowEmpty' => true,
