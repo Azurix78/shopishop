@@ -2,12 +2,12 @@
 class Orders_user extends AppModel
 {
     public $validate = array(
-        'id_user' => array(
+        'user_id' => array(
             'rule'      => 'numeric',
             'message'   => 'Utilisateur invalide',
             'allowEmpty' => false,
         ),
-        'id_address' => array(
+        'address_id' => array(
             'rule'       => 'notEmpty',
             'message'    => 'Adresse invalide',
             'allowEmpty' => false,
