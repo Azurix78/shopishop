@@ -2168,3 +2168,22 @@ Request URL: /img/rsc/favicon.ico
 Stack Trace:
 #0 /Users/rubio_n/Documents/Sites/E-commerce/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-02-06 12:15:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/rsc/favicon.ico
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-06 13:34:55 Error: Fatal Error (1): Call to undefined method AdminController::layout() in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminController.php, line 8]
+2014-02-06 13:34:55 Error: [FatalErrorException] Call to undefined method AdminController::layout()
+Request URL: /admin
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/Happy/Do...', 8)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/Happy/Do...', 8, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/Happy/Do...', 8, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
