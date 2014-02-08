@@ -6,6 +6,9 @@
 		echo $this->Form->input('title', array('options' => array('M.' => 'M.', 'Mme' => 'Mme'), 'label' => 'Civilité'));
 		echo $this->Form->input('password', array('label' => 'Mot de passe'));
 		echo $this->Form->input('password_verify', array('label' => 'Confirmer le mot de passe', 'type' => 'password'));
+?>
+<div class="date-input">
+	<?php
 		echo $this->Form->input('birthday', 
 		    array(
 		        'type' => 'date',
@@ -21,5 +24,8 @@
 		        'options' => array('1','2')
 		    )
 		);
+	?>
+</div>
+	<?php	
 	echo $this->Form->end('S\'inscrire');
 ?>
