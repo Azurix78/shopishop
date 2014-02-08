@@ -30,9 +30,9 @@
 								</ul>
 							</li>
 							<li  class="subnav">
-								<a href="#">Marques</a>
+								<a href="/adminbrands">Marques</a>
 								<ul class="nav">
-									<li><a href="">Ajouter un produit</a></li>
+									<li><a href="/adminbrands/add">Ajouter un produit</a></li>
 									<li><a href="">Modifier un produit</a></li>
 								</ul>
 							</li>

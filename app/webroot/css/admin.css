@@ -349,7 +349,7 @@ input[type=text],
 input[type=date],
 input[type=password],
 input[type=number],
-input[type=mail],
+input[type=email],
 textarea
 {
   display: inline-block;
@@ -1238,6 +1238,8 @@ header nav li a.active{
 
 .nav{
   left: auto;
+  z-index: 2000;
+  position: absolute;
   background: #444444;
   box-shadow: 0px 5px 0px #2b2b2b;
 }

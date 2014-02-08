@@ -33,4 +33,33 @@ class AppController extends Controller
 {
 	public $helpers = array('Html', 'Form', 'Session');
 	public $components = array('Session', 'Cookie', 'Auth', 'Security' => array('csrfUseOnce' => false));
+
+	protected function upload($file)
+	{
+		$this->Picture->create();
+		$filename = $file['name'];
+        $tmp_name = $file['tmp_name'];
+        $extension = strtolower(pathinfo($filename , PATHINFO_EXTENSION));
+        if(!empty($tmp_name))
+        {
+            if(in_array($extension, array('jpg','jpeg','png', 'gif'))){
+                $filename = strtr($filename,'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                $filename = time() . "_" . preg_replace('/([^a-z0-9]+)/i', '-', $filename);
+
+                if(move_uploaded_file($tmp_name, IMAGES . 'files' . DS . $filename . '.' .$extension))
+                {
+                	$picture = array();
+                	$picture['picture'] = $filename . '.' .$extension;
+                    if($this->Picture->save($picture))
+                    {
+                        return true;
+                    }
+                    $this->Session->setFlash('Erreur lors du l\'enregistrement ','default', array('class' => 'message erreur'));
+                }               
+            } else {
+                $this->Session->setFlash('Extension incorrect (.png, .jpg, .jpeg, .gif)','default', array('class' => 'message erreur'));
+            }            
+        }
+        return false;
+	}
 }

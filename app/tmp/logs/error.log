@@ -3068,3 +3068,329 @@ Stack Trace:
 #11 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #12 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2014-02-07 10:41:49 Error: [MissingControllerException] Controller class AdminandsController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminandsController',
+  'plugin' => NULL,
+)
+Request URL: /adminands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-07 10:45:18 Error: [MissingControllerException] Controller class AdminandsController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminandsController',
+  'plugin' => NULL,
+)
+Request URL: /adminands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-07 10:45:19 Error: [MissingControllerException] Controller class AdminandsController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminandsController',
+  'plugin' => NULL,
+)
+Request URL: /adminands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-07 10:45:19 Error: [MissingControllerException] Controller class AdminandsController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminandsController',
+  'plugin' => NULL,
+)
+Request URL: /adminands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-07 10:45:19 Error: [MissingControllerException] Controller class AdminandsController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminandsController',
+  'plugin' => NULL,
+)
+Request URL: /adminands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-07 10:51:35 Error: [MissingActionException] Action AdminBrandsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'AdminBrandsController',
+  'action' => 'index',
+)
+Request URL: /adminbrands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-02-07 10:51:36 Error: [MissingActionException] Action AdminBrandsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'AdminBrandsController',
+  'action' => 'index',
+)
+Request URL: /adminbrands
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-02-07 11:10:29 Error: [BadRequestException] The request has been black-holed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Component/SecurityComponent.php(239): SecurityComponent->blackHole(Object(AdminBrandsController), 'auth')
+#1 [internal function]: SecurityComponent->startup(Object(AdminBrandsController))
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#3 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#4 /Users/Happy/Documents/www/shopishop/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(182): Controller->startupProcess()
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-02-07 11:11:17 Error: [BadRequestException] The request has been black-holed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Component/SecurityComponent.php(239): SecurityComponent->blackHole(Object(AdminBrandsController), 'auth')
+#1 [internal function]: SecurityComponent->startup(Object(AdminBrandsController))
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#3 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#4 /Users/Happy/Documents/www/shopishop/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(182): Controller->startupProcess()
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-02-07 11:12:27 Error: [BadRequestException] The request has been black-holed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Component/SecurityComponent.php(239): SecurityComponent->blackHole(Object(AdminBrandsController), 'auth')
+#1 [internal function]: SecurityComponent->startup(Object(AdminBrandsController))
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#3 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#4 /Users/Happy/Documents/www/shopishop/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(182): Controller->startupProcess()
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-02-07 11:18:21 Error: [BadRequestException] The request has been black-holed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Component/SecurityComponent.php(239): SecurityComponent->blackHole(Object(AdminBrandsController), 'auth')
+#1 [internal function]: SecurityComponent->startup(Object(AdminBrandsController))
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#3 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#4 /Users/Happy/Documents/www/shopishop/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(182): Controller->startupProcess()
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-02-07 11:21:09 Error: [BadRequestException] The request has been black-holed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Component/SecurityComponent.php(239): SecurityComponent->blackHole(Object(AdminBrandsController), 'auth')
+#1 [internal function]: SecurityComponent->startup(Object(AdminBrandsController))
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#3 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#4 /Users/Happy/Documents/www/shopishop/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(675): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(182): Controller->startupProcess()
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#8 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2014-02-07 11:21:11 Error: Fatal Error (4): syntax error, unexpected 'array' (T_ARRAY) in [/Users/Happy/Documents/www/shopishop/app/View/AdminBrands/add.ctp, line 2]
+2014-02-07 11:21:11 Error: [FatalErrorException] syntax error, unexpected 'array' (T_ARRAY)
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Users/Happy/Do...', 2)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Users/Happy/Do...', 2, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Users/Happy/Do...', 2, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 11:21:56 Error: Fatal Error (1): Call to undefined function upload() in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 18]
+2014-02-07 11:21:56 Error: [FatalErrorException] Call to undefined function upload()
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/Happy/Do...', 18)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/Happy/Do...', 18, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/Happy/Do...', 18, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 11:58:03 Error: Fatal Error (64): Multiple access type modifiers are not allowed in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 15]
+2014-02-07 11:58:03 Error: [FatalErrorException] Multiple access type modifiers are not allowed
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Multiple access...', '/Users/Happy/Do...', 15)
+#1 [internal function]: ErrorHandler::handleError(64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 11:58:23 Error: Fatal Error (64): Multiple access type modifiers are not allowed in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 15]
+2014-02-07 11:58:23 Error: [FatalErrorException] Multiple access type modifiers are not allowed
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Multiple access...', '/Users/Happy/Do...', 15)
+#1 [internal function]: ErrorHandler::handleError(64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 11:58:31 Error: Fatal Error (64): Multiple access type modifiers are not allowed in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 15]
+2014-02-07 11:58:31 Error: [FatalErrorException] Multiple access type modifiers are not allowed
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Multiple access...', '/Users/Happy/Do...', 15)
+#1 [internal function]: ErrorHandler::handleError(64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 11:58:37 Error: Fatal Error (64): Multiple access type modifiers are not allowed in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminbrandsController.php, line 15]
+2014-02-07 11:58:37 Error: [FatalErrorException] Multiple access type modifiers are not allowed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Multiple access...', '/Users/Happy/Do...', 15)
+#1 [internal function]: ErrorHandler::handleError(64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 11:58:40 Error: Fatal Error (64): Multiple access type modifiers are not allowed in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminbrandsController.php, line 15]
+2014-02-07 11:58:40 Error: [FatalErrorException] Multiple access type modifiers are not allowed
+Request URL: /adminbrands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Multiple access...', '/Users/Happy/Do...', 15)
+#1 [internal function]: ErrorHandler::handleError(64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 64, 'Multiple access...', '/Users/Happy/Do...', 15, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 12:00:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`brands`, CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `ec...', Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(1003): DboSource->execute('INSERT INTO `ec...')
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Model.php(1830): DboSource->create(Object(Brand), Array, Array)
+#4 /Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php(27): Model->save(Array)
+#5 [internal function]: AdminBrandsController->add()
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminBrandsController), Array)
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-02-07 12:00:55 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`brands`, CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `ec...', Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(1003): DboSource->execute('INSERT INTO `ec...')
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Model.php(1830): DboSource->create(Object(Brand), Array, Array)
+#4 /Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php(27): Model->save(Array)
+#5 [internal function]: AdminBrandsController->add()
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminBrandsController), Array)
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-02-07 12:01:17 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`brands`, CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `ec...', Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(1003): DboSource->execute('INSERT INTO `ec...')
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Model.php(1830): DboSource->create(Object(Brand), Array, Array)
+#4 /Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php(27): Model->save(Array)
+#5 [internal function]: AdminBrandsController->add()
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminBrandsController), Array)
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-02-07 12:01:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`brands`, CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `ec...', Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(1003): DboSource->execute('INSERT INTO `ec...')
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Model.php(1830): DboSource->create(Object(Brand), Array, Array)
+#4 /Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php(27): Model->save(Array)
+#5 [internal function]: AdminBrandsController->add()
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminBrandsController), Array)
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-02-07 12:04:09 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`brands`, CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `ec...', Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(1003): DboSource->execute('INSERT INTO `ec...')
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Model.php(1830): DboSource->create(Object(Brand), Array, Array)
+#4 /Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php(27): Model->save(Array)
+#5 [internal function]: AdminBrandsController->add()
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminBrandsController), Array)
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-02-07 12:06:41 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`brands`, CONSTRAINT `brands_ibfk_1` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION)
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `ec...', Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Datasource/DboSource.php(1003): DboSource->execute('INSERT INTO `ec...')
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Model/Model.php(1830): DboSource->create(Object(Brand), Array, Array)
+#4 /Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php(27): Model->save(Array)
+#5 [internal function]: AdminBrandsController->add()
+#6 /Users/Happy/Documents/www/shopishop/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminBrandsController), Array)
+#7 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /Users/Happy/Documents/www/shopishop/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(AdminBrandsController), Object(CakeRequest), Object(CakeResponse))
+#9 /Users/Happy/Documents/www/shopishop/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-02-07 12:13:51 Error: Fatal Error (1): Call to private method AppController::upload() from context 'AdminBrandsController' in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 23]
+2014-02-07 12:13:51 Error: [FatalErrorException] Call to private method AppController::upload() from context 'AdminBrandsController'
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/Users/Happy/Do...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/Users/Happy/Do...', 23, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/Users/Happy/Do...', 23, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 12:14:22 Error: Fatal Error (1): Call to private method AppController::upload() from context 'AdminBrandsController' in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 23]
+2014-02-07 12:14:22 Error: [FatalErrorException] Call to private method AppController::upload() from context 'AdminBrandsController'
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/Users/Happy/Do...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/Users/Happy/Do...', 23, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/Users/Happy/Do...', 23, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 12:14:23 Error: Fatal Error (1): Call to private method AppController::upload() from context 'AdminBrandsController' in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 23]
+2014-02-07 12:14:23 Error: [FatalErrorException] Call to private method AppController::upload() from context 'AdminBrandsController'
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/Users/Happy/Do...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/Users/Happy/Do...', 23, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/Users/Happy/Do...', 23, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-07 12:14:42 Error: Fatal Error (1): Call to undefined method App::upload() in [/Users/Happy/Documents/www/shopishop/app/Controller/AdminBrandsController.php, line 23]
+2014-02-07 12:14:42 Error: [FatalErrorException] Call to undefined method App::upload()
+Request URL: /admin_brands/add
+Stack Trace:
+#0 /Users/Happy/Documents/www/shopishop/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/Happy/Do...', 23)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/Happy/Do...', 23, Array)
+#2 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/Happy/Do...', 23, Array)
+#3 /Users/Happy/Documents/www/shopishop/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
