@@ -35,7 +35,7 @@
 				<?php echo $this->fetch('content'); ?>
 			</div>
 			<footer></footer>
-			<?
+			<?php
 				echo $this->Html->script('jquery-2.0.3.js');
 				echo $this->Html->script('bootstrap');
 			?>
