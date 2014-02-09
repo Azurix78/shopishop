@@ -23,17 +23,15 @@
 						<ul>
 							<li><a href="#" class="active">Home</a></li>
 							<li class="subnav">
-								<a href="#" >Products</a>
+								<a href="/AdminProducts" >Produits</a>
 								<ul class="nav">
-									<li><a href="">Ajouter un produit</a></li>
-									<li><a href="">Modifier un produit</a></li>
+									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
 								<a href="/adminbrands">Marques</a>
 								<ul class="nav">
-									<li><a href="/adminbrands/add">Ajouter un produit</a></li>
-									<li><a href="">Modifier un produit</a></li>
+									<li><a href="/adminbrands/add">Ajouter une marque</a></li>
 								</ul>
 							</li>
 						</ul>
