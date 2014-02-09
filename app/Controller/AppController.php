@@ -32,7 +32,30 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller
 {
 	public $helpers = array('Html', 'Form', 'Session');
-	public $components = array('Session', 'Cookie', 'Auth', 'Security' => array('csrfUseOnce' => false));
+	public $components = array(
+        'Session',
+        'Cookie',
+        'Auth' => array(
+            'authenticate' => array(
+                'all' => array(
+                    'scope' => array('User.active' => 1)
+                ),
+                'Form' => array(
+                    'fields' => array('username' => 'email')
+                )
+            )
+        ),
+        'Security' => array('csrfUseOnce' => false)
+    );
+
+    protected function isAuthorized($role)
+    {
+        if (isset($role) && $role === 'Admin')
+        {
+            return true;
+        }
+        return false;
+    }
 
 	protected function upload($file)
 	{
@@ -62,4 +85,44 @@ class AppController extends Controller
         }
         return false;
 	}
+
+    protected function password_email($user_email, $mdp)
+    {
+        App::uses('CakeEmail', 'Network/Email');
+        $Email = new CakeEmail();
+        $Email->from(array('42shop@robot.com' => '42 Shop - activation'));
+        $Email->to($user_email);
+        $Email->emailFormat('html');
+        $Email->subject('Changement de mot de passe');
+        return $Email->send('Un administrateur à changé votre mot de passe.<BR>Votre nouveau mot de passe : ' . $mdp);
+    }
+
+    protected function validation_email($user_email, $token)
+    {
+        App::uses('CakeEmail', 'Network/Email');
+        $Email = new CakeEmail();
+        $Email->from(array('42shop@robot.com' => '42 Shop - activation'));
+        $Email->to($user_email);
+        $Email->emailFormat('html');
+        $Email->subject('Changement de mot de passe');
+        return $Email->send(
+            'Bienvenue sur le site 42 Shop !
+            <BR>Achetez votre lingerie chez les plus grandes marques chez 42 Shop, nos promotions sont imbattable !
+            <BR>Pour activer votre compte cliqué sur ce lien :
+            <BR>http://localhost:8888/users/validation/'. $token
+        );
+    }
+
+    protected function random_char($lenght = 8)
+    {
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $count = mb_strlen($chars);
+
+        for ($i = 0, $result = ''; $i < $lenght; $i++)
+        {
+            $index = rand(0, $count - 1);
+            $result .= mb_substr($chars, $index, 1);
+        }
+        return $result;
+    }
 }

@@ -4,22 +4,19 @@ App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel
 {
-    // public function beforeSave($options = array())
-    // {
-    //     if (!$this->id)
-    //     {
-    //         $passwordHasher = new SimplePasswordHasher();
-    //         $this->data['User']['password'] = $passwordHasher->hash(
-    //             $this->data['User']['password']
-    //         );
-    //     }
-    //     return true;
-    // }
-
     public function beforeSave($options = array())
     {
-        $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
-        return true;
+        if(isset($this->data['User']['password']))
+        {
+            $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+            return true;
+        }
+        elseif(isset($this->data['AdminUser']['password']))
+        {
+            $this->data['AdminUser']['password'] = AuthComponent::password($this->data['AdminUser']['password']);
+            return true;
+        }
+        
     }
 
     public $belongsTo = 'Role';
@@ -68,10 +65,12 @@ class User extends AppModel
                 'rule' => array('compareFields', 'password_verify'),
                 'message' => 'Les mots de passe ne correspondent pas'
                 ),
-        ),   
-  
-
-
+        ),
+        'role_id' => array(
+            'rule'      => 'numeric',
+            'message'   => 'Role invalide',
+            'allowEmpty' => false,
+        ),
     );
 
     public function isTitle($field)
@@ -90,8 +89,4 @@ class User extends AppModel
         }
         return false;
     }
-
-    
-
 }
-
