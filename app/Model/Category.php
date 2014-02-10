@@ -1,6 +1,14 @@
 <?php
 class Category extends AppModel
 {
+    public $hasMany = array(
+        'Pictures' => array(
+            'foreign_key' => 'id',
+            'condition' => array('Category.picture_id' => 'Pictures.id'),
+            'limit' => '1',
+        )
+    );
+
     public $validate = array(
         'name' => array(
             'rule'      => 'notEmpty',
