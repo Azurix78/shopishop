@@ -7,7 +7,6 @@ class AdminProductsController extends AppController
 	{
 		parent::beforeFilter();
 		$this->layout = 'admin';
-		$this->Auth->allow('index');
 	}
 
 	public function index()
