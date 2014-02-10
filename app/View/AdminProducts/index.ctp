@@ -10,10 +10,12 @@
 						echo '<tr>';
 						echo '<td>'. $row['Products']['picture_id'] .'</td>';
 						echo '<td>'. $row['Products']['name'] .'</td>';
-						echo '<td>'. $row['Products']['category_id'] .'</td>';
-						echo '<td>'. $row['Products']['brand_id'] .'</td>';
-						echo '<td>'. $row['Products']['promo_id'] .'</td>';
-						echo '<td>'. $row['Products']['status'] .'</td>';
+						echo '<td>'. $row['categories']['name'] .'</td>';
+						echo '<td>'. $row['brands']['name'] .'</td>';
+						echo '<td>'. $row['promos']['name'] .'</td>';
+						echo '<td>';
+						echo ($row['Products']['status'] == 0) ? 'Activé' : 'Désactivé';
+						echo '</td>';
 						echo '<td>'. $row['Products']['created'] .'</td>';
 						echo '<td>'. $row['Products']['updated'] .'</td>';
 						echo '</tr>';
