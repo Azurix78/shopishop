@@ -1,7 +1,7 @@
 <?php
 class AdminProductsController extends AppController
 {
-	public $uses = array('Picture', 'Products'), $products;
+	public $uses = array('Picture', 'Products', ''), $products, $array;
 
 	public function beforeFilter()
 	{
