@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="div">
 		<div class="title">Ajouter un produit</div>
-			<form action="#" method="post">
+			<form action="" method="post">
 				<label for="name">Nom :</label> <input type="text" id="name" name="name">
 
 				<label for="categories">Catégorie :</label>
@@ -28,6 +28,8 @@
 					<select id="promo" name="promo">
 						Ici les promos récupérés via SQL.
 					</select>
+
+				<input type="submit" name="product" value="Ajouter">
 			</form>
 	</div>
 </div>
