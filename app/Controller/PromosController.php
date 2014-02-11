@@ -4,12 +4,12 @@ class PromosController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		//$this->Auth->allow('index');
+		$this->Auth->allow('index', 'add', 'edit');
 	}
 
-	public function index()
+	public function index($status = 1)
 	{
-		$result = $this->Promo->find('all');
+		$result = ($status == 1) ? $this->Promo->find('all', array('conditions' => array('DATE_DIFF(`limit_date`, CURRENT_DATE()) >=' => '0'))) : $this->Promo->find('all', array('conditions' => array('DATE_DIFF(`limit_date`, CURRENT_DATE()) <' => '0')));
 		// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Ajoute au résultat un array contenant la date en BDD ET la date en plus naturel : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA']
 		$result['Promo']['limit_date'] = array('original' => $result['limit_date'], 'formatted' => $this->rewriteDate($result['limit_date']));
@@ -35,9 +35,8 @@ class PromosController extends AppController
 		if ($this->request->is('post')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence
 			$d = $this->request->data;
-			$d['Promo'] = $d['edit_promo'];
 			$d['Promo']['id'] = $id;
-			if ($this->Promo->save($d, true, array('name', 'code', 'reduction', 'limit_date'))) {
+			if ($this->Promo->save($d, true, array('limit_date'))) {
 				$this->Session->setFlash('Les informations ont bien été modifiées');
 				return $this->redirect(array('controller' => 'promos', 'action' => 'index'));
 			} else

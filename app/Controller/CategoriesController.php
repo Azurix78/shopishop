@@ -4,14 +4,14 @@ class CategoriesController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		//$this->Auth->allow('index');
+		$this->Auth->allow('index', 'add', 'edit');
 	}
 
 	public function index()
 	{
 		$result = $this->Category->find('all');
 		$result['Category']['url_picture'] = $result['Picture']['picture'];
-		$this->set('pictures', $result);
+		$this->set('categories', $result);
 	}
 
 	public function add()
@@ -33,7 +33,6 @@ class CategoriesController extends AppController
 		if ($this->request->is('post')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence
 			$d = $this->request->data;
-			$d['Category'] = $d['edit_category'];
 			$d['Category']['id'] = $id;
 			if ($this->Category->save($d, true, array('name', 'menu_color', 'picture_id'))) {
 				$this->Session->setFlash('Les informations ont bien été modifiées');
