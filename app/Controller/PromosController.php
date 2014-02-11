@@ -12,7 +12,7 @@ class PromosController extends AppController
 		$result = $this->Promo->find('all');
 		// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Ajoute au résultat un array contenant la date en BDD ET la date en plus naturel : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA']
-		$result['Promo']['limit_date'] = array('original' => $result['limit_date'], 'formatted' => rewriteDate($result['limit_date']));
+		$result['Promo']['limit_date'] = array('original' => $result['limit_date'], 'formatted' => $this->rewriteDate($result['limit_date']));
 		$this->set('promos', $result);
 	}
 
@@ -52,9 +52,9 @@ class PromosController extends AppController
 		if ($this->request->is('post')) {
 			$this->request->data['Promo']['id'] = $id;
 			if ($this->Promo->save($d, true, array('limit_date')))
-				echo returnStatus(0, "l'entrée a bien été désactivée");
+				echo $this->returnStatus(0, "l'entrée a bien été désactivée");
 			} else
-				echo returnStatus(1, "Une erreur s'est produite lors de la désactivation de l'entrée");
+				echo $this->returnStatus(1, "Une erreur s'est produite lors de la désactivation de l'entrée");
 		}
 	}
 
