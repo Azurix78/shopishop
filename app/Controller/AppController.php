@@ -57,7 +57,7 @@ class AppController extends Controller
         return false;
     }
 
-	protected function upload($file)
+	protected function upload($file, $id = null)
 	{
 		$this->Picture->create();
 		$filename = $file['name'];
@@ -73,6 +73,7 @@ class AppController extends Controller
                 {
                 	$picture = array();
                 	$picture['picture'] = $filename . '.' .$extension;
+                    if(!empty($id) && $id != null) $this->Picture->id = $id;
                     if($this->Picture->save($picture))
                     {
                         return true;
