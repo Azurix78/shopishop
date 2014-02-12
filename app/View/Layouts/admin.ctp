@@ -11,6 +11,9 @@
 			//echo $this->Html->css('cake.generic');
 			echo $this->fetch('css');
 		?>
+		<?
+			echo $this->Html->script('jquery-2.0.3.js');
+		?>
 	</head>
 	<body>
 		<div id="container">
@@ -32,10 +35,11 @@
 							<li  class="subnav">
 								<a href="/adminbrands">Marques</a>
 								<ul class="nav">
-									<li><a href="/adminbrands/add">Ajouter un produit</a></li>
-									<li><a href="">Modifier un produit</a></li>
+									<li><a href="/adminbrands/add">Ajouter une marque</a></li>
+									<li><a href="">Modifier une marque</a></li>
 								</ul>
 							</li>
+							<li><a href="/adminpictures">Pictures</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -47,7 +51,6 @@
 			</div>
 			<footer></footer>
 			<?
-				echo $this->Html->script('jquery-2.0.3.js');
 				echo $this->Html->script('bootstrap');
 			?>
 		</div>

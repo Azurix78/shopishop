@@ -34,7 +34,7 @@ class AppController extends Controller
 	public $helpers = array('Html', 'Form', 'Session');
 	public $components = array('Session', 'Cookie', 'Auth', 'Security' => array('csrfUseOnce' => false));
 
-	protected function upload($file)
+	protected function upload($file, $id = null)
 	{
 		$this->Picture->create();
 		$filename = $file['name'];
@@ -50,6 +50,7 @@ class AppController extends Controller
                 {
                 	$picture = array();
                 	$picture['picture'] = $filename . '.' .$extension;
+                    if(!empty($id) && $id != null) $this->Picture->id = $id;
                     if($this->Picture->save($picture))
                     {
                         return true;

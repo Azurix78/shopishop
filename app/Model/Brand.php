@@ -1,6 +1,9 @@
 <?php
 class Brand extends AppModel
 {
+
+    public $belongsTo = 'Picture';
+
     public $validate = array(
         'name' => array(
             'rule'      => 'notEmpty',
