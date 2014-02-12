@@ -2,6 +2,7 @@
 class Address extends AppModel
 {
     
+    public $belongsTo = 'User';
 
     public $validate = array(
         'lastname' => array(
@@ -42,4 +43,5 @@ class Address extends AppModel
         ),
         
     );
+
 }

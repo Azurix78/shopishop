@@ -71,6 +71,10 @@ class User extends AppModel
             'message'   => 'Role invalide',
             'allowEmpty' => false,
         ),
+        'old_password' => array(
+            'rule' => 'checkCurrentPassword',
+            'message' => 'Mot de passe incorrect'
+        ),
     );
 
     public function isTitle($field)
@@ -82,11 +86,19 @@ class User extends AppModel
         return false;
     }
 
-    public function compareFields() {
+    public function compareFields()
+    {
         if ($this->data['User']['password'] == $this->data['User']['password_verify'])
         {
             return true;
         }
         return false;
+    }
+
+    public function checkCurrentPassword($data)
+    {
+        $this->id = AuthComponent::user('id');
+        $password = $this->field('password');
+        return(AuthComponent::password($data['old_password']) == $password);
     }
 }

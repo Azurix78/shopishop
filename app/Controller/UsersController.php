@@ -58,7 +58,6 @@ class UsersController extends AppController
 
 	public function validation()
 	{
-
 		if(!isset($this->request->params['pass'][0]))
 		{
 			return $this->redirect(array('controller' => 'Home'));
@@ -86,6 +85,76 @@ class UsersController extends AppController
 			}
 		}
 		$this->set(compact('validation'));
+	}
+
+	public function profil()
+	{
+		// $user = $this->User->findById($this->Auth->user('id'));
+		// debug($user);
+	}
+
+	public function edit()
+	{
+		$user = $this->User->find('first', array(
+	        'fields' => array(
+	        	'User.id', 
+	        	'User.firstname', 
+	        	'User.lastname', 
+	        	'User.email', 
+	        	'User.birthday'
+	        ),
+	        'conditions' => array(
+	        	'User.active' => 1, 
+	        	'User.id' => $this->Auth->user('id')
+	        )
+    	));
+
+		if ($this->request->is('post'))
+        {
+        	$this->User->id = $this->Auth->user('id');
+
+			if($this->User->save($this->request->data, true))
+			{
+				$this->Session->setFlash('Compte modifié');
+                return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
+			}
+			$this->Session->setFlash('Informations invalides');
+			return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
+		}
+
+		if (!$this->request->data)
+		{
+        	$this->request->data = $user;
+    	}
+	}
+
+	public function password()
+	{
+		if ($this->request->is('post'))
+        {
+        	$this->User->id = $this->Auth->user('id');
+
+			if($this->User->save($this->request->data, true))
+			{
+				$this->Session->setFlash('Mot de passe modifié');
+                return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
+			}
+			$this->Session->setFlash('Informations invalides');
+			return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
+		}
+		return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
+	}
+
+	public function active()
+	{
+		$this->User->id = $this->Auth->user('id');
+		if($this->User->saveField('active', 0))
+		{
+			$this->Session->setFlash('Votre compte est maintenant désactivé');
+			$this->redirect($this->Auth->logout());
+		}
+		$this->Session->setFlash('Erreur lors de la désactivation');
+		return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
 	}
 
 	public function test()
