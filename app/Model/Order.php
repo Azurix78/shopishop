@@ -1,5 +1,5 @@
 <?php
-class Orders_visitor extends AppModel
+class Order extends AppModel
 {
     public $validate = array(
         'gift_wrap' => array(

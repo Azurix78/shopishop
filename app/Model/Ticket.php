@@ -1,8 +1,6 @@
 <?php
-class Ticket_user extends AppModel
+class Ticket extends AppModel
 {
-
-
     public $validate = array(
         'category' => array(
             'rule'      => 'notEmpty',
@@ -14,14 +12,9 @@ class Ticket_user extends AppModel
             'message'   => 'Vous devez rentrer un objet',
             'allowEmpty' => false,
         ),
-        'user_id' => array(
-            'rule'      => '[0-9]+',
-            'message'   => 'Utilisateur invalide',
-            'allowEmpty' => false,
-        ),
-        'orders_user_id' => array(
-            'rule'      => '[0-9]+',
-            'message'   => 'Commande invalide',
+        'email' => array(
+            'rule'      => 'email',
+            'message'   => 'Vous devez rentrer un email valide',
             'allowEmpty' => false,
         ),
         'content' => array(
