@@ -6,7 +6,7 @@
 <?php
 foreach ($categories as $key => $category)
 {
-	echo '<tr><td>' . $category['Category']['name'] . '</td><td>' . $category['Category']['color'] . '</td><td>' . $category['Category']['picture_id'] . '</td></tr>';
+	echo '<tr><td>' . $category['Category']['name'] . '</td><td>' . $category['Category']['menu_color'] . '</td><td>' . $category['Category']['picture_id'] . '</td></tr>';
 }
 ?>
 </table>

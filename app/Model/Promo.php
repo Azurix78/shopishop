@@ -13,12 +13,12 @@ class Promo extends AppModel
             'allowEmpty' => false,
         ),
         'reduction' => array(
-            'rule'      => '[0-9][1-9]%',
+            'rule'      => array('between', 1, 99),
             'message'   => 'Réduction invalide',
             'allowEmpty' => false,
         ),
         'limit_date' => array(
-            'rule'      => 'date',
+            'rule'      => 'datetime',
             'message'   => 'Date invalide',
             'allowEmpty' => false,
         ),

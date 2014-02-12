@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('limit_date', 
 		    array(
-		        'type' => 'limit_date',
+		        'type' => 'date',
 		        'label' => 'Date limite',
 		        'dateFormat' => 'DMY',
 		        'empty' => array(

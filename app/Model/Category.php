@@ -1,8 +1,8 @@
 <?php
 class Category extends AppModel
 {
-    public $hasMany = array(
-        'Pictures' => array(
+    public $belongsTo = array(
+        'Picture' => array(
             'foreign_key' => 'id',
             'condition' => array('Category.picture_id' => 'Pictures.id'),
             'limit' => '1',
@@ -21,7 +21,7 @@ class Category extends AppModel
             'allowEmpty' => false,
         ),
         'picture_id' => array(
-            'rule'      => '[0-9]+',
+            'rule'      => 'numeric',
             'message'   => 'Image invalide',
             'allowEmpty' => false,
         ),
