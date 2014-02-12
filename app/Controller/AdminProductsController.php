@@ -1,13 +1,12 @@
 <?php
 class AdminProductsController extends AppController
 {
-	public $uses = array('Picture', 'Products'), $products;
+	public $uses = array('Products'), $products;
 
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
 		$this->layout = 'admin';
-		$this->Auth->allow('index');
 	}
 
 	public function index()
@@ -18,7 +17,32 @@ class AdminProductsController extends AppController
 		}
 		else
 		{
-			$this->products = $this->Products->find('all');
+			$this->products = $this->Products->find('all', array(
+					'fields' => '*',
+					'joins' => array(
+						array(
+							'table' => 'categories',
+							'type' => 'LEFT',
+							'conditions' => array('Products.category_id = Categories.id')						
+						),
+						array(
+							'table' => 'pictures',
+							'type' => 'LEFT',
+							'conditions' => array('Products.picture_id = Pictures.id')						
+						),
+						array(
+							'table' => 'brands',
+							'type' => 'LEFT',
+							'conditions' => array('Products.brand_id = Brands.id')						
+						),
+						array(
+							'table' => 'promos',
+							'type' => 'LEFT',
+							'conditions' => array('Products.promo_id = Promos.id')						
+						)
+					)
+				)
+			);
 		}
 
 		$this->set('products', $this->products);
