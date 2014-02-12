@@ -1,30 +1,4 @@
 
-app/tmp/cache/persistent/myapp_cake_core_method_cache
+app/tmp/*
 
-app/tmp/cache/persistent/myapp_cake_core_method_cache
-
-app/tmp/cache/persistent/myapp_cake_core_file_map
-
-app/tmp/cache/persistent/myapp_cake_core_file_map
-
-app/tmp/cache/persistent/myapp_cake_core_cake_fr-fr
-
-app/tmp/cache/persistent/myapp_cake_core_cake_dev_fr-fr
-
-app/tmp/cache/models/myapp_cake_model_default_ecommerce_users
-
-app/tmp/cache/models/myapp_cake_model_default_ecommerce_list
-
-app/tmp/logs/error.log
-
-app/tmp/cache/models/myapp_cake_model_default_ecommerce_brands
-
-app/tmp/cache/models/myapp_cake_model_default_ecommerce_brands
-
-app/tmp/cache/models/myapp_cake_model_default_ecommerce_pictures
-
-app/tmp/cache/persistent/myapp_cake_core_cake_dev_en
-
-app/tmp/cache/persistent/myapp_cake_core_cake_en
-
-app/tmp/cache/persistent/myapp_cake_core_cake_en
+app/Config/database.php

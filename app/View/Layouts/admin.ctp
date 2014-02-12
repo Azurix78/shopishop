@@ -26,10 +26,9 @@
 						<ul>
 							<li><a href="#" class="active">Home</a></li>
 							<li class="subnav">
-								<a href="#" >Products</a>
+								<a href="/AdminProducts" >Produits</a>
 								<ul class="nav">
-									<li><a href="">Ajouter un produit</a></li>
-									<li><a href="">Modifier un produit</a></li>
+									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
@@ -50,7 +49,7 @@
 				<?php echo $this->fetch('content'); ?>
 			</div>
 			<footer></footer>
-			<?
+			<?php
 				echo $this->Html->script('bootstrap');
 			?>
 		</div>
