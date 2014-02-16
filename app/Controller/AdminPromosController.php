@@ -21,7 +21,7 @@ class AdminPromosController extends AppController
 		// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Ajoute au résultat un array contenant la date en BDD ET la date en plus naturel : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA'].
 		foreach ($result AS $key => $value)
-			$result[$key]['Promo']['limit_date'] = array('original' => $result[$key]['Promo']['limit_date'], 'formatted' => $this->rewriteDate($result[$key]['Promo']['limit_date']));
+			$result[$key]['Promo']['limit_date'] = array('original' => $result[$key]['Promo']['limit_date'], 'formatted' => $this->Promo->rewriteDate($result[$key]['Promo']['limit_date']));
 		$this->set('promos', $result);
 	}
 
@@ -62,19 +62,8 @@ class AdminPromosController extends AppController
 		if ($this->request->is('post')) {
 			$this->request->data['Promo']['id'] = $id;
 			if ($this->Promo->save($d, true, array('limit_date')))
-				echo $this->returnStatus(0, "l'entrée a bien été désactivée");
+				echo $this->Promo->returnStatus(0, "l'entrée a bien été désactivée");
 		} else
-			echo $this->returnStatus(1, "Une erreur s'est produite lors de la désactivation de l'entrée");
-	}
-
-//	Ces fonctions devraient être placées dans un helper.
-	public function rewriteDate($date)
-	{
-		return preg_replace('/^(20[0-2][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', '$3/$2/$1', $date);
-	}
-
-	public function returnStatus($code, $message)
-	{
-		return '{"code": "' . $code . '", "message": "' . $message . '"}';
+			echo $this->Promo->returnStatus(1, "Une erreur s'est produite lors de la désactivation de l'entrée");
 	}
 }
