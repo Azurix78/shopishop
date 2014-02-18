@@ -19,7 +19,7 @@ class AdminPromosController extends AppController
 	{
 		$result = ($status == 1) ? $this->Promo->find('all', array('conditions' => array('DATEDIFF(`limit_date`, CURRENT_DATE()) >=' => '0'))) : $this->Promo->find('all', array('conditions' => array('DATEDIFF(`limit_date`, CURRENT_DATE()) <' => '0')));
 		// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Ajoute au résultat un array contenant la date en BDD ET la date en plus naturel : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA'].
+		// Ajoute au résultat un array contenant la date en BDD ET la date en "plus naturel" : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA'].
 		foreach ($result AS $key => $value)
 			$result[$key]['Promo']['limit_date'] = array('original' => $result[$key]['Promo']['limit_date'], 'formatted' => $this->Promo->rewriteDate($result[$key]['Promo']['limit_date']));
 		$this->set('promos', $result);

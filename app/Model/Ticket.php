@@ -1,6 +1,14 @@
 <?php
 class Ticket extends AppModel
 {
+    public $hasOne = array(
+        'Message' => array(
+            'order' => array('Message.created' => 'DESC'),
+            'limit' => '1',
+        )
+    );
+    public $belongsTo = array('Order');
+
     public $validate = array(
         'category' => array(
             'rule'      => 'notEmpty',
