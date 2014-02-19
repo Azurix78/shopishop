@@ -31,7 +31,7 @@ class AdminCategoriesController extends AppController
 			$d['Category']['picture_id'] = 1; // <---- For test purposes only. Must be removed in final version.
 			if ($this->Category->save($d)) {
 				$this->Session->setFlash('L\'entrée a bien été ajoutée');
-				return $this->redirect(array('controller' => 'categories', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
 		}
@@ -47,7 +47,7 @@ class AdminCategoriesController extends AppController
 			$d['Category']['picture_id'] = 1; // <---- For test purposes only. Must be removed in final version.
 			if ($this->Category->save($d, true, array('name', 'menu_color', 'picture_id'))) {
 				$this->Session->setFlash('Les informations ont bien été modifiées');
-				return $this->redirect(array('controller' => 'categories', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de la modification des informations');
 		}

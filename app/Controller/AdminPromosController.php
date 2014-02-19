@@ -32,7 +32,7 @@ class AdminPromosController extends AppController
 			$d = $this->request->data;
 			if ($this->Promo->save($d)) {
 				$this->Session->setFlash('L\'entrée a bien été ajoutée');
-				return $this->redirect(array('controller' => 'promos', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'adminpromos', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
 		}
