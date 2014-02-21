@@ -6,13 +6,13 @@ class AdminTicketsController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow('index');/*
+		//$this->Auth->allow('index');
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
 			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
 			return $this->redirect($this->Auth->redirectUrl());
-		}*/
+		}
 	}
 
 	public function index($status = null, $id = null)
