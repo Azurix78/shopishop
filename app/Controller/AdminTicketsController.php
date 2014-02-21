@@ -1,35 +1,35 @@
 <?php
-class TicketsController extends AppController
+class AdminTicketsController extends AppController
 {
 	public $uses = array('Ticket', 'Message');
 
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		//$this->Auth->allow('index');
+		$this->Auth->allow('index');/*
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
 			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
 			return $this->redirect($this->Auth->redirectUrl());
-		}
+		}*/
 	}
 
-	public function index($status, $id)
+	public function index($status = null, $id = null)
 	{
 		// Si le statut est présent et correct.
-		if ($status && in_array($status, array(0, 1, 2))) {
-			$tickets = $this->Ticket->find('all', array('conditions' => array('status' => $status)));
-			return array('tickets' => $tickets);
+		if ($status !== null && in_array($status, array(0, 1, 2))) {
+			$tickets = $this->Ticket->find('all', array('conditions' => array('`Ticket`.status' => $status)));
+			return $this->set(array('tickets' => $tickets));
 		}
 		// Si le statut est présent mais incorrect.
-		else if ($status && !in_array($status, array(0, 1, 2))) {
+		else if ($status !== null && !in_array($status, array(0, 1, 2))) {
 			$this->Session->setFlash('Statut de ticket incorrect');
 			return $this->redirect(array('controller' => 'admintickets', 'action' => 'index'));
 		}
-		// ID et statut absents.
+		// Statut absent.
 		else {
-			return array('tickets' => $this->Ticket->find('all'));
+			return $this->set(array('tickets' => $this->Ticket->find('all')));
 		}
 	}
 
