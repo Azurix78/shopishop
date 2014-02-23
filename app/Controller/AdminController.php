@@ -1,7 +1,7 @@
 <?php
 class AdminController extends AppController
 {
-	public $uses = array('User', 'Picture', 'Brand');
+	public $uses = array('User', 'Order', 'Ticket');
 
 	public function beforeFilter()
 	{
@@ -16,5 +16,10 @@ class AdminController extends AppController
 
     public function index()
     {
+    	$users = $this->User->find('count');
+    	$orders = $this->Order->find('count');
+    	$tickets = $this->Ticket->find('count');
+
+    	$this->set(compact('users', 'orders', 'tickets'));
     }
 }

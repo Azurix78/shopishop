@@ -8,7 +8,6 @@
 		<?php
 			echo $this->Html->css('style');
 			echo $this->Html->css('admin');
-			//echo $this->Html->css('cake.generic');
 			echo $this->fetch('css');
 		?>
 		<?
@@ -24,21 +23,34 @@
 					</div>
 					<nav>
 						<ul>
-							<li><a href="#" class="active">Home</a></li>
+							<li><a href="/Admin" class="active">Home</a></li>
+							<li class="subnav">
+								<a href="/adminusers" >Utilisateurs</a>
+								<ul class="nav">
+									<li><a href="/adminusers/add">Ajouter un utilisateur</a></li>
+									<li><a href="/adminusers">Modifier une utilisateur</a></li>
+								</ul>
+							</li>
 							<li class="subnav">
 								<a href="/AdminProducts" >Produits</a>
 								<ul class="nav">
 									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
+									<li><a href="/AdminProducts">Modifier une marque</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
 								<a href="/adminbrands">Marques</a>
 								<ul class="nav">
 									<li><a href="/adminbrands/add">Ajouter une marque</a></li>
-									<li><a href="">Modifier une marque</a></li>
+									<li><a href="/adminbrands">Modifier une marque</a></li>
 								</ul>
 							</li>
-							<li><a href="/adminpictures">Pictures</a></li>
+							<li  class="subnav">
+								<a href="/adminpictures">Pictures</a>
+								<ul class="nav">
+									<li><a href="/adminpictures">Modifier une photo</a></li>
+								</ul>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -51,6 +63,7 @@
 			<footer></footer>
 			<?php
 				echo $this->Html->script('bootstrap');
+				echo $this->Html->script('admin');
 			?>
 		</div>
 	</body>

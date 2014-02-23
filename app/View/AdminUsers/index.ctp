@@ -8,10 +8,8 @@
 				<th>Prénom</th>
 				<th>Civilité</th>
 				<th>Email</th>
-				<th>Date d'anniversaire</th>
 				<th>Dernière IP</th>
-				<th>Role</th>
-				<th>Créé le</th>
+				<th>Rôle</th>
 				<th>Mis à jour le</th>
 				<th><th>
 			</tr>
@@ -26,10 +24,8 @@
 						<td><?php echo $user['User']['firstname'];?></td>
 						<td><?php echo $user['User']['title'];?></td>
 						<td><?php echo $user['User']['email'];?></td>
-						<td><?php echo $user['User']['birthday'];?></td>
 						<td><?php echo $user['User']['last_ip'];?></td>
 						<td><?php echo $user['Role']['name'];?></td>
-						<td><?php echo $user['User']['created'];?></td>
 						<td><?php echo $user['User']['updated'];?></td>
 						<td>
 							<?php
@@ -65,10 +61,8 @@
 				<th>Prénom</th>
 				<th>Civilité</th>
 				<th>Email</th>
-				<th>Date d'anniversaire</th>
 				<th>Dernière IP</th>
 				<th>Role</th>
-				<th>Créé le</th>
 				<th>Mis à jour le</th>
 				<th><th>
 			</tr>
@@ -83,10 +77,8 @@
 						<td><?php echo $user['User']['firstname'];?></td>
 						<td><?php echo $user['User']['title'];?></td>
 						<td><?php echo $user['User']['email'];?></td>
-						<td><?php echo $user['User']['birthday'];?></td>
 						<td><?php echo $user['User']['last_ip'];?></td>
 						<td><?php echo $user['Role']['name'];?></td>
-						<td><?php echo $user['User']['created'];?></td>
 						<td><?php echo $user['User']['updated'];?></td>
 						<td>
 							<?php

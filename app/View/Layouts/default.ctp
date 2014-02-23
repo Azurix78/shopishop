@@ -14,11 +14,11 @@
 	<body>
 		<div id="container">
 			<header>
-				<div class="logo">
+				<a class="logo" href="/">
 					<img src="/img/logo.png" alt="Logo 42Shop">
-				</div>
+				</a>
 				<nav>
-					<a href="#">Home</a>
+					<a href="/">Home</a>
 					<a href="#">Products</a>
 					<a href="#">Contact</a>
 					<a id="panier" href="#">Panier</a>

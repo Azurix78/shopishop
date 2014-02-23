@@ -3,17 +3,17 @@
 		<div class="title">Statistiques de la boutique</div>
 		<div class="stats-carre">
 			<div>
-				<strong>300</strong>
-				<span>Users<br>
+				<strong><?php echo $users ;?></strong>
+				<span>Utilisateurs<br>
 					Au total</span>
 			</div>
 			<div>
-				<strong>150</strong>
+				<strong><?php echo $orders; ?></strong>
 				<span>commandes<br>
 					Au total</span>
 			</div>
 			<div>
-				<strong>100</strong>
+				<strong><?php echo $tickets; ?></strong>
 				<span>tickets<br>
 					Au total</span>
 			</div>

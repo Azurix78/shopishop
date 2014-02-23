@@ -1,35 +1,15 @@
 <div class="container">
 	<div class="div">
 		<div class="title">Ajouter un produit</div>
-			<form action="" method="post">
-				<label for="name">Nom :</label> <input type="text" id="name" name="name">
-
-				<label for="categories">Catégorie :</label>
-					<select id="categories" name="categories">
-						Ici les catégories récupérées via SQL.
-					</select>
-
-				<label for="picture">Image :</label>
-					<select id="picture" name="picture">
-						Ici les nom d'images récupérés via SQL.
-					</select>
-
-				<label for="picture">Image :</label>
-					<select id="picture" name="picture">
-						Ici les nom d'images récupérés via SQL.
-					</select>
-
-				<label for="brand">Marque :</label>
-					<select id="brand" name="brand">
-						Ici les marques récupérés via SQL.
-					</select>
-
-				<label for="promo">Promotion :</label>
-					<select id="promo" name="promo">
-						Ici les promos récupérés via SQL.
-					</select>
-
-				<input type="submit" name="product" value="Ajouter">
-			</form>
+			<?php
+				echo $this->Form->create('AdminProducts', array('action' => '/add'));
+				echo $this->Form->input('name', array('label' => 'Nom'));
+				echo $this->Form->input('picture_id', array('options' => array($select_pictures), 'label' => 'Image', 'class' => 'select_picture'));
+				echo $this->Form->input('category_id', array('options' => array($select_categories), 'label' => 'Catégorie'));
+				echo $this->Form->input('brand_id', array('options' => array($select_brands), 'label' => 'Marque'));
+				echo $this->Form->input('promo_id', array('options' => array($select_promos), 'label' => 'Promotions'));
+				echo $this->Form->input('status', array('options' => array(0 => 'Désactivé', 1 => 'Activé'), 'label' => 'Status'));
+				echo $this->Form->end('Ajouter', true);
+			?>
 	</div>
 </div>
