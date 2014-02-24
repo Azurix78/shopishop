@@ -1,7 +1,7 @@
 <?php
 class HomeController extends AppController
 {
-	public $uses = array('Article');
+	public $uses = array('Product');
 
 	function beforeFilter()
 	{
@@ -11,8 +11,8 @@ class HomeController extends AppController
 
 	public function index()
 	{
-		$this->set('random_products', $this->Article->find('all', array( 
-		   'conditions' => array('Article.status' => 1), 
+		$this->set('random_products', $this->Product->find('all', array( 
+		   'conditions' => array('Product.status' => 1), 
 		   'order' => 'rand()',
 		   'limit' => 3,
 		)));
