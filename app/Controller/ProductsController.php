@@ -6,7 +6,7 @@ class ProductsController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow('index');
+		$this->Auth->allow('index','category','brands');
 		$brands = $this->Brand->find('all', array('conditions' => array('brand.status'=> 0)));
 		$categories = $this->Category->find('all');
 		$this->set('brands', $brands);
