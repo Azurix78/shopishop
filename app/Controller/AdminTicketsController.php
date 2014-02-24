@@ -15,7 +15,7 @@ class AdminTicketsController extends AppController
 		}
 	}
 
-	public function index($status = null, $id = null)
+	public function index($status = null)
 	{
 		// Si le statut est présent et correct.
 		if ($status !== null && in_array($status, array(0, 1, 2))) {

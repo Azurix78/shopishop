@@ -33,7 +33,7 @@ class AppModel extends Model {
 
 	public function rewriteDate($date)
 	{
-		return preg_replace('/^(20[0-2][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', '$3/$2/$1', $date);
+		return preg_replace('/(20[0-2][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/', '$3/$2/$1', $date);
 	}
 
 	public function returnStatus($code, $message)

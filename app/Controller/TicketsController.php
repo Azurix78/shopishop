@@ -6,39 +6,60 @@ class TicketsController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		//$this->Auth->allow('index');
+		$this->Auth->allow('index');
 	}
 
-	public function index($status, $id)
+	public function index($id = null)
 	{
 		// Si l'ID du ticket est présente et correcte.
-		if ($id && is_int($id)) {
+		if ($id && is_int(intval($id))) {
 			$ticket = $this->Ticket->findById($id);
 			if ($ticket == null) {
 				$this->Session->setFlash('Ticket inexistant');
-				return $this->redirect(array('controller' => 'tickets', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
 			}
-			$messages = $this->Message->find('all', array('conditions' => array('ticket_id' => $îd, 'user_id' => $this->Auth->user('id'))));
-			return array('ticket' => $ticket, 'messages' => $messages);
+			$messages = $this->Message->find('all', array('conditions' => array('ticket_id' => $id)));
+			$this->set(array('ticket' => $ticket['Ticket'], 'messages' => $messages));
 		}
 		// Si l'ID du ticket est présente mais incorrecte.
-		else if ($id && !is_int($id)) {
+		else if ($id && !is_int(intval($id))) {
 			$this->Session->setFlash('Ticket inexistant');
-			return $this->redirect(array('controller' => 'tickets', 'action' => 'index');
+			return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
 		}
-		// Si le statut est présent et correct.
-		if ($status && in_array($status, array(0, 1, 2))) {
-			$tickets = $this->Ticket->find('all', array('conditions' => array('status' => $status, 'user_id' => $this->Auth->user('id'))));
-			return array('tickets' => $tickets);
-		}
-		// Si le statut est présent mais incorrect.
-		else if ($status && !in_array($status, array(0, 1, 2))) {
-			$this->Session->setFlash('Statut de ticket incorrect');
-			return $this->redirect(array('controller' => 'tickets', 'action' => 'index'));
-		}
-		// ID et statut absents.
+		// ID absente.
 		else {
-			return array('tickets' => $this->Ticket->find('all'));
+			return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
+		}
+		// Si ajout d'un message au ticket.
+		if ($this->request->is('post') || $this->request->is('put')) {
+//			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
+			$d = $this->request->data;
+			var_dump($d);
+			$d['Message']['ticket_id'] = $id;
+			$d['Message']['staff'] = $this->Auth->user('role') ? $this->Auth->user('role') % 2 : 0; // -----> Super ternaire qui déchire ta race !!
+			if ($this->Message->save($d, true, array('ticket_id', 'email', 'content', 'staff'))) {
+				$this->Session->setFlash('Le message a bien été ajoutée');
+			} else
+				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout du message');
+			return $this->redirect(array('controller' => 'tickets', 'action' => 'index', $id));
+		}
+	}
+
+	public function add($id = null)
+	{
+		if (!$id || !is_int(intval($id)))
+			$this->redirect(array('controller' => 'orders', 'action' => 'index'));
+		if ($this->request->is('post') || $this->request->is('put')) {
+//			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
+			$d = $this->request->data;
+			if ($this->Order->findById($id) == null)
+				return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
+			$d['Ticket']['order_id'] = $id;
+			if ($this->Ticket->save($d, true, array('email', 'content', 'category', 'object', 'order_id'))) {
+				$this->Session->setFlash('Le ticket a bien été ajoutée');
+				return $this->redirect(array('controller' => 'tickets', 'action' => 'index', $this->Ticket->getLastInsertID()));
+			} else
+				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout du ticket');
 		}
 	}
 
