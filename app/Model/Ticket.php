@@ -1,7 +1,13 @@
 <?php
-class Ticket_user extends AppModel
+class Ticket extends AppModel
 {
-
+    public $hasOne = array(
+        'Message' => array(
+            'order' => array('Message.created' => 'DESC'),
+            'limit' => '1',
+        )
+    );
+    public $belongsTo = array('Order');
 
     public $validate = array(
         'category' => array(
@@ -14,14 +20,9 @@ class Ticket_user extends AppModel
             'message'   => 'Vous devez rentrer un objet',
             'allowEmpty' => false,
         ),
-        'user_id' => array(
-            'rule'      => '[0-9]+',
-            'message'   => 'Utilisateur invalide',
-            'allowEmpty' => false,
-        ),
-        'orders_user_id' => array(
-            'rule'      => '[0-9]+',
-            'message'   => 'Commande invalide',
+        'email' => array(
+            'rule'      => 'email',
+            'message'   => 'Vous devez rentrer un email valide',
             'allowEmpty' => false,
         ),
         'content' => array(

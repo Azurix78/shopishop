@@ -17,7 +17,7 @@ foreach ($addresses as $key => $address)
 	echo $this->Form->create('Address', array('action' => '/add'));
 	echo $this->Form->input('lastname', array('label' => 'Nom'));
 	echo $this->Form->input('firstname', array('label' => 'Prénom'));
-	echo $this->Form->input('address', array('label' => 'Adresse'));
+	echo $this->Form->input('address', array('label' => 'Adresse', 'type' => 'text'));
 	echo $this->Form->input('zipcode', array('label' => 'Code postal'));
 	echo $this->Form->input('country', array('label' => 'Pays'));
 	echo $this->Form->end('Ajouter', true);

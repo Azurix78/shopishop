@@ -1,12 +1,17 @@
 <?php
-class CategoriesController extends AppController
+class AdminCategoriesController extends AppController
 {
 	public $uses = array('Category', 'Picture');
 
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'add', 'edit');
+		$this->layout = 'admin';
+		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
+		{
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			return $this->redirect($this->Auth->redirectUrl());
+		}
 	}
 
 	public function index()
@@ -26,7 +31,7 @@ class CategoriesController extends AppController
 			$d['Category']['picture_id'] = 1; // <---- For test purposes only. Must be removed in final version.
 			if ($this->Category->save($d)) {
 				$this->Session->setFlash('L\'entrée a bien été ajoutée');
-				return $this->redirect(array('controller' => 'categories', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
 		}
@@ -42,7 +47,7 @@ class CategoriesController extends AppController
 			$d['Category']['picture_id'] = 1; // <---- For test purposes only. Must be removed in final version.
 			if ($this->Category->save($d, true, array('name', 'menu_color', 'picture_id'))) {
 				$this->Session->setFlash('Les informations ont bien été modifiées');
-				return $this->redirect(array('controller' => 'categories', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de la modification des informations');
 		}

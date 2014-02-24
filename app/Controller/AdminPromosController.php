@@ -1,20 +1,27 @@
 <?php
-class PromosController extends AppController
+class AdminPromosController extends AppController
 {
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'add', 'edit');
+		// $this->Auth->allow();
 		$this->layout = 'admin';
+		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
+		{
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			return $this->redirect($this->Auth->redirectUrl());
+		}
 	}
+
+	public $uses = array('Promo');
 
 	public function index($status = 1)
 	{
 		$result = ($status == 1) ? $this->Promo->find('all', array('conditions' => array('DATEDIFF(`limit_date`, CURRENT_DATE()) >=' => '0'))) : $this->Promo->find('all', array('conditions' => array('DATEDIFF(`limit_date`, CURRENT_DATE()) <' => '0')));
 		// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Ajoute au résultat un array contenant la date en BDD ET la date en plus naturel : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA'].
+		// Ajoute au résultat un array contenant la date en BDD ET la date en "plus naturel" : resultat['limit_date'] = ['orginal' => 'AAAA-MM-JJ', 'formatted' => 'JJ/MM/AAAA'].
 		foreach ($result AS $key => $value)
-			$result[$key]['Promo']['limit_date'] = array('original' => $result[$key]['Promo']['limit_date'], 'formatted' => $this->rewriteDate($result[$key]['Promo']['limit_date']));
+			$result[$key]['Promo']['limit_date'] = array('original' => $result[$key]['Promo']['limit_date'], 'formatted' => $this->Promo->rewriteDate($result[$key]['Promo']['limit_date']));
 		$this->set('promos', $result);
 	}
 
@@ -25,7 +32,7 @@ class PromosController extends AppController
 			$d = $this->request->data;
 			if ($this->Promo->save($d)) {
 				$this->Session->setFlash('L\'entrée a bien été ajoutée');
-				return $this->redirect(array('controller' => 'promos', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'adminpromos', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
 		}
@@ -55,19 +62,8 @@ class PromosController extends AppController
 		if ($this->request->is('post')) {
 			$this->request->data['Promo']['id'] = $id;
 			if ($this->Promo->save($d, true, array('limit_date')))
-				echo $this->returnStatus(0, "l'entrée a bien été désactivée");
+				echo $this->Promo->returnStatus(0, "l'entrée a bien été désactivée");
 		} else
-			echo $this->returnStatus(1, "Une erreur s'est produite lors de la désactivation de l'entrée");
-	}
-
-//	Ces fonctions devraient être placées dans un helper.
-	public function rewriteDate($date)
-	{
-		return preg_replace('/^(20[0-2][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', '$3/$2/$1', $date);
-	}
-
-	public function returnStatus($code, $message)
-	{
-		return '{"code": "' . $code . '", "message": "' . $message . '"}';
+			echo $this->Promo->returnStatus(1, "Une erreur s'est produite lors de la désactivation de l'entrée");
 	}
 }

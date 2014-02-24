@@ -1,60 +1,156 @@
 <?php
 class AdminProductsController extends AppController
 {
-	public $uses = array('Products'), $products;
+	public $uses = array('Product', 'Category', 'Picture', 'Brand', 'Promo', 'Article');
 
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
 		$this->layout = 'admin';
+		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
+		{
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			return $this->redirect($this->Auth->redirectUrl());
+		}
 	}
 
 	public function index()
 	{
-		if($this->Products->find('count') < 1)
-		{
-			$this->products = '<div class="alert btn-red">Actuellement, aucun produit n\'est présent dans la base de donnée.</div>';
-		}
-		else
-		{
-			$this->products = $this->Products->find('all', array(
-					'fields' => '*',
-					'joins' => array(
-						array(
-							'table' => 'categories',
-							'type' => 'LEFT',
-							'conditions' => array('Products.category_id = Categories.id')						
-						),
-						array(
-							'table' => 'pictures',
-							'type' => 'LEFT',
-							'conditions' => array('Products.picture_id = Pictures.id')						
-						),
-						array(
-							'table' => 'brands',
-							'type' => 'LEFT',
-							'conditions' => array('Products.brand_id = Brands.id')						
-						),
-						array(
-							'table' => 'promos',
-							'type' => 'LEFT',
-							'conditions' => array('Products.promo_id = Promos.id')						
-						)
-					)
-				)
-			);
-		}
+		$products = $this->Product->find('all');
+		(count($products) == 0) ? $products : false;
 
-		$this->set('products', $this->products);
+		$this->set('products', $products);
 	}
 
 	public function add()
 	{
-		// Vérification de formulaire, puis ajout dans la base de donnée.
+		//select Category
+		$categories = $this->Category->find('all', array(
+			'fields' => array('name', 'id'),
+		));
+		$select_categories = array();
+		foreach ($categories as $key => $category)
+		{
+			$select_categories[$category['Category']['id']] = $category['Category']['name'];
+		}
+
+		//select Picture
+		$pictures = $this->Picture->find('all', array(
+			'fields' => array('picture', 'id'),
+		));
+		$select_pictures = array();
+		foreach ($pictures as $key => $picture)
+		{
+			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
+		}
+
+		//select Brand
+		$brands = $this->Brand->find('all', array(
+			'fields' => array('name', 'id'),
+		));
+		$select_brands = array();
+		foreach ($brands as $key => $brand)
+		{
+			$select_brands[$brand['Brand']['id']] = $brand['Brand']['name'];
+		}
+
+		//select Promo
+		$promos = $this->Promo->find('all', array(
+			'fields' => array('name', 'id'),
+		));
+		$select_promos = array();
+		foreach ($promos as $key => $promo)
+		{
+			$select_promos[$promo['Promo']['id']] = $promo['Promo']['name'];
+		}
+
+		if ($this->request->is('post'))
+        {
+			$data = array();
+        	$data['Product'] = $this->request->data['AdminProducts'];
+
+			if($this->Product->save($data, true))
+			{
+				$this->Session->setFlash('Produit ajouté', 'default', array('class' => 'alert btn-green'));
+				$id = $this->Product->getInsertID();
+                return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'. $id));
+			}
+			$this->Session->setFlash('Informations invalides', 'default', array('class' => 'alert btn-red'));
+		}
+
+		$this->set(compact('select_pictures', 'select_categories', 'select_brands', 'select_promos'));
 	}
 
-	public function edit()
+	public function edit($id=null)
 	{
-		// Edition d'un produit, puis update dans la base de donnée.
+		$product = $this->Product->findById($id);
+		if (!$product)
+		{
+			throw new NotFoundException(__('Invalid user'));
+		}
+
+		//select Category
+		$categories = $this->Category->find('all', array(
+			'fields' => array('name', 'id'),
+		));
+		$select_categories = array();
+		foreach ($categories as $key => $category)
+		{
+			$select_categories[$category['Category']['id']] = $category['Category']['name'];
+		}
+
+		//select Picture
+		$pictures = $this->Picture->find('all', array(
+			'fields' => array('picture', 'id'),
+		));
+		$select_pictures = array();
+		foreach ($pictures as $key => $picture)
+		{
+			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
+		}
+
+		//select Brand
+		$brands = $this->Brand->find('all', array(
+			'fields' => array('name', 'id'),
+		));
+		$select_brands = array();
+		foreach ($brands as $key => $brand)
+		{
+			$select_brands[$brand['Brand']['id']] = $brand['Brand']['name'];
+		}
+
+		//select Promo
+		$promos = $this->Promo->find('all', array(
+			'fields' => array('name', 'id'),
+		));
+		$select_promos = array();
+		foreach ($promos as $key => $promo)
+		{
+			$select_promos[$promo['Promo']['id']] = $promo['Promo']['name'];
+		}
+
+		if ($this->request->is('post'))
+        {
+        	$this->Product->id = $id;
+			$data = array();
+        	$data['Product'] = $this->request->data['AdminProducts'];
+
+			if($this->Product->save($data, true))
+			{
+				$this->Session->setFlash('Produit modifié', 'default', array('class' => 'alert btn-green'));
+                return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit'));
+			}
+			$this->Session->setFlash('Informations invalides', 'default', array('class' => 'alert btn-red'));
+		}
+
+		$data = array();
+		$data['AdminProducts'] = $product['Product'];
+		
+		if (!$this->request->data)
+		{
+        	$this->request->data = $data;
+    	}
+
+		$this->set(compact('product', 'select_pictures', 'select_categories', 'select_brands', 'select_promos'));
 	}
 }
