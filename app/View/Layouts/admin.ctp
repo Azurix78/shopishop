@@ -26,9 +26,24 @@
 						<ul>
 							<li><a href="#" class="active">Home</a></li>
 							<li class="subnav">
+								<a href="/Adminusers">Users</a>
+								<ul class="nav">
+									<li><a href="/Adminusers">Afficher les users</a></li>
+									<li><a href="/Adminusers/add">Ajouter un user</a></li>
+								</ul>
+							</li>
+							<li class="subnav">
 								<a href="/AdminProducts" >Produits</a>
 								<ul class="nav">
+									<li><a href="/AdminProducts/">Afficher les produits</a></li>
 									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
+								</ul>
+							</li>
+							<li class="subnav">
+								<a href="/Promos" >Promos</a>
+								<ul class="nav">
+									<li><a href="/Promos/">Afficher les promos</a></li>
+									<li><a href="/Promos/add">Ajouter une promo</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">

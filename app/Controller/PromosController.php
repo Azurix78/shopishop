@@ -5,6 +5,7 @@ class PromosController extends AppController
 	{
 		parent::beforeFilter();
 		$this->Auth->allow('index', 'add', 'edit');
+		$this->layout = 'admin';
 	}
 
 	public function index($status = 1)
