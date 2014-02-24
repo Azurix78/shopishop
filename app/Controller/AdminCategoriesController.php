@@ -48,12 +48,21 @@ class AdminCategoriesController extends AppController
 
 	public function edit($id)
 	{
+		//select Picture
+		$pictures = $this->Picture->find('all', array(
+			'fields' => array('picture', 'id'),
+		));
+		$select_pictures = array();
+		foreach ($pictures as $key => $picture)
+		{
+			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
+		}
+
 		$result = $this->Category->findById($id);
 		if ($this->request->is('post') || $this->request->is('put')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
 			$d = $this->request->data;
 			$d['Category']['id'] = $id;
-			$d['Category']['picture_id'] = 1; // <---- For test purposes only. Must be removed in final version.
 			if ($this->Category->save($d, true, array('name', 'menu_color', 'picture_id'))) {
 				$this->Session->setFlash('Les informations ont bien été modifiées');
 				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
@@ -62,5 +71,6 @@ class AdminCategoriesController extends AppController
 		}
 		$this->data = $result;
 		$this->set('category', $result);
+		$this->set('select_pictures', $select_pictures);
 	}
 }

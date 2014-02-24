@@ -138,7 +138,7 @@ class AdminProductsController extends AppController
 			if($this->Product->save($data, true))
 			{
 				$this->Session->setFlash('Produit modifié', 'default', array('class' => 'alert btn-green'));
-                return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit'));
+                return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
 			}
 			$this->Session->setFlash('Informations invalides', 'default', array('class' => 'alert btn-red'));
 		}

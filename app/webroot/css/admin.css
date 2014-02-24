@@ -1382,6 +1382,7 @@ td{
   border-bottom: 1px solid #2b2b2b;
   padding: 5px;
   vertical-align: middle;
+  text-align: center;
 }
 
 tr:last-child{
@@ -1409,6 +1410,8 @@ select{
 }
 
 #AdminUsersBirthdayMonth,
-#AdminUsersBirthdayYear{
+#AdminUsersBirthdayYear,
+#PromoLimitDateMonth,
+#PromoLimitDateYear{
   margin-left: 150px;
 }

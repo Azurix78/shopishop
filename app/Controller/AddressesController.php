@@ -18,4 +18,42 @@ class AddressesController extends AppController
 		));
 		$this->set(compact('addresses'));
 	}
+
+	public function add()
+	{
+		if ($this->request->is('post'))
+        {
+        	$data = $this->request->data;
+        	$data['Address']['user_id'] = $this->Auth->user('id');
+
+			$this->Address->create();
+			if($this->Address->save($data, true))
+			{
+				$this->Session->setFlash('Adresse rajoutée aux favoris');
+                return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
+            }
+            $this->Session->setFlash('Informations invalides');
+            return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
+		}
+	}
+
+	public function del($id=null)
+	{
+		$address = $this->Address->findById($id);
+		if (!$address)
+		{
+			throw new NotFoundException(__('Invalid address'));
+		}
+
+		if($this->Auth->user('id') == $address['Address']['user_id'])
+		{
+			if($this->Address->delete($id))
+			{
+				$this->Session->setFlash('Adresse effacée');
+				return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
+			}
+		}
+		$this->Session->setFlash('Informations invalides');
+		return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
+	}
 }

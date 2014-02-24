@@ -17,6 +17,7 @@
 				<?php if(!$this->Session->read('Auth.User')){
 					?>
 					<div id="quick-login">
+						<a id="quick-register" href="/Users/register">S'inscrire</a>
 						<?php echo $this->Form->create('User', array('action' => '/login'));?>
 							<?php echo $this->Form->input('email', array('placeholder' => 'Email')); ?>
 							<?php echo $this->Form->input('password', array('placeholder' => 'Mot de passe')); ?>

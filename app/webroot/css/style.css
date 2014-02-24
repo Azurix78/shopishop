@@ -339,7 +339,40 @@ footer .column > a{
    padding: 0 10px;
 }
 
+#quick-register{
+   float: right;
+   padding: 0 10px;
+}
 
+.address-item
+{
+   border-radius: 5px;
+   position: relative;
+   width: 90%;
+   margin: 10px auto;
+   border: 1px #c567c5 solid;
+   padding: 5px;
+   background-color: #e6a1e9;
+}
+
+.address-item .address-text
+{
+   display: inline-block;
+   width: 80%;
+}
+
+.address-item .address-pannel
+{
+   width: 20%;
+   text-align: right;
+   display: inline-block;
+   vertical-align: top;
+}
+
+.address-item .address-pannel > a
+{
+   color: #ffffff;
+}
 
 
 /* FIN RUBIO */

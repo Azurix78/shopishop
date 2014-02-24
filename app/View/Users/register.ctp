@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="div">
+		<div class="title">Inscription</div>
 		<?php 
 		echo $this->Form->create('User');
 		echo $this->Form->input('lastname', array('label' => 'Nom'));

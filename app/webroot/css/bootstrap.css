@@ -1311,6 +1311,6 @@ select{
 }
 
 #UserBirthdayMonth,
-#UserBirthdayYear{
+#UserBirthdayYear,{
   margin-left: 150px;
 }

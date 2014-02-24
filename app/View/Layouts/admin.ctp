@@ -47,10 +47,10 @@
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/Promos" >Promos</a>
+								<a href="/AdminPromos" >Promos</a>
 								<ul class="nav">
-									<li><a href="/Promos/">Afficher les promos</a></li>
-									<li><a href="/Promos/add">Ajouter une promo</a></li>
+									<li><a href="/AdminPromos/">Afficher les promos</a></li>
+									<li><a href="/AdminPromos/add">Ajouter une promo</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
@@ -75,7 +75,6 @@
 
 				<?php echo $this->fetch('content'); ?>
 			</div>
-			<footer></footer>
 			<?php
 				echo $this->Html->script('bootstrap');
 				echo $this->Html->script('admin');

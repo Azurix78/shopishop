@@ -38,16 +38,16 @@
 			array('controller' => 'AdminUsers', 'action' => 'password', $user['User']['id']),
 			array('class' => 'btn btn-orange'),
 			array('Êtes-vous sûr de vouloir regénérer un nouveau mot de passe pour ' . $user['User']['title'] . $user['User']['lastname'])
+		);
+		?>
+		<h1><?php echo ucfirst($is_active); ?> l'utilisateur</h1>
+		<?php
+			echo $this->Html->link(
+			ucfirst($is_active),
+			array('controller' => 'AdminUsers', 'action' => 'active', $user['User']['id']),
+			array('class' => 'btn btn-red'),
+			"Êtes vous sur de vouloir " . $is_active . " le compte de " . $user['User']['title'] . $user['User']['lastname']
 			);
-			?>
-			<h1><?php echo ucfirst($is_active); ?> l'utilisateur</h1>
-			<?php
-				echo $this->Html->link(
-				ucfirst($is_active),
-				array('controller' => 'AdminUsers', 'action' => 'active', $user['User']['id']),
-				array('class' => 'btn btn-red'),
-				"Êtes vous sur de vouloir " . $is_active . " le compte de " . $user['User']['title'] . $user['User']['lastname']
-				);
-			?>
+		?>
 	</div>
 </div>
