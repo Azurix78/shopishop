@@ -9,6 +9,7 @@
 				echo $this->Form->input('brand_id', array('options' => array($select_brands), 'label' => 'Marque'));
 				echo $this->Form->input('promo_id', array('options' => array($select_promos), 'label' => 'Promotions'));
 				echo $this->Form->input('status', array('options' => array(0 => 'Désactivé', 1 => 'Activé'), 'label' => 'Status'));
+				echo $this->Form->input('price', array('type'=>'number', 'label' => 'Prix'));
 				echo $this->Form->end('Ajouter', true);
 			?>
 	</div>

@@ -12,10 +12,10 @@
 					</div>
 					<div class="product-pannel">
 						<div class="product-name">
-							<span class="product-title"><?php echo $product['Product']['name']; ?></span>
+							<span class="product-title"><?php echo $product['Product']['name'] . ' ' . $product['Article']['size'] . ' ' . ucfirst($product['Article']['color']); ?></span>
 						</div>
 						<div class="product-price">
-							<span><?php echo $product['Article'][0]['price']; ?> €</span>
+							<span><?php echo $product['Article']['price']; ?> €</span>
 						</div>
 						<a class="see-more" href="/Products/">
 							Voir plus
