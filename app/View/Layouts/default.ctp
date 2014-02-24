@@ -19,9 +19,9 @@
 				</a>
 				<nav>
 					<a href="/">Home</a>
-					<a href="#">Products</a>
-					<a href="#">Contact</a>
-					<a id="panier" href="#">Panier</a>
+					<a href="/Products">Products</a>
+					<a href="/Contacts">Contact</a>
+					<a id="panier" href="/Cart">Panier</a>
 					<div id="header_search">
 						<form class="search">
 							<input type="text" placeholder="search" />
@@ -34,7 +34,46 @@
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->fetch('content'); ?>
 			</div>
-			<footer></footer>
+			<footer>
+				<div class="container">
+					<div class="column">
+						<h1>Ma commande</h1>
+						<a href="/">Suivi de commande</a>
+						<a href="/">Frais d'envoi</a>
+						<a href="/">Délai de livraison</a>
+						<a href="/">Echange et remboursement</a>
+						<a href="/">Moyen de paiement</a>
+						<a href="/">Livraison à domicile ou Point Relais</a>
+					</div><!--
+					--><div class="column">
+						<h1>Ma commande</h1>
+						<a href="/">Suivi de commande</a>
+						<a href="/">Frais d'envoi</a>
+						<a href="/">Délai de livraison</a>
+						<a href="/">Echange et remboursement</a>
+						<a href="/">Moyen de paiement</a>
+						<a href="/">Livraison à domicile ou Point Relais</a>
+					</div><!--
+					--><div class="column">
+						<h1>Ma commande</h1>
+						<a href="/">Suivi de commande</a>
+						<a href="/">Frais d'envoi</a>
+						<a href="/">Délai de livraison</a>
+						<a href="/">Echange et remboursement</a>
+						<a href="/">Moyen de paiement</a>
+						<a href="/">Livraison à domicile ou Point Relais</a>
+					</div><!--
+					--><div class="column">
+						<h1>Ma commande</h1>
+						<a href="/">Suivi de commande</a>
+						<a href="/">Frais d'envoi</a>
+						<a href="/">Délai de livraison</a>
+						<a href="/">Echange et remboursement</a>
+						<a href="/">Moyen de paiement</a>
+						<a href="/">Livraison à domicile ou Point Relais</a>
+					</div>
+				</div>
+			</footer>
 			<?php
 				echo $this->Html->script('jquery-2.0.3.js');
 				echo $this->Html->script('bootstrap');

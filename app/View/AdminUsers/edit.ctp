@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="div">
-		<h1>Information de l'utilisateur</h1>
+		<div class="title">Information utilisateur</div>
 		<?php
 		echo $this->Form->create('AdminUsers', array('action' => '/edit/' . $user['User']['id']));
 		echo $this->Form->input('lastname', array('label' => 'Nom'));
@@ -31,7 +31,7 @@
 		<?php echo $this->Form->end('Ajouter', true); ?>
 	</div>
 	<div class="div">
-		<h1>Reset du password</h1>
+		<div class="title">Reset password</div>
 		<?php
 		echo $this->Html->link(
 			'Générer un nouveau mot de passe',

@@ -67,3 +67,187 @@ table {
 ::-moz-placeholder { color:#242B2B; } /* firefox 19+ */
 :-ms-input-placeholder { color:#242B2B; } /* ie */
 input:-moz-placeholder { color:#242B2B; }
+
+/* RUBIO */
+
+#slider{
+   width: 100%;
+   height: 300px;
+   background: url(../img/slider-img.png) center no-repeat #ffffff;
+   background-size: 90%;
+   padding: 0;
+   margin: 10px 0;
+}
+
+.product-item{
+   height: 200px;
+   width: 315px;
+   display: inline-block;
+   overflow: hidden;
+   padding: 0px !important;
+}
+
+.product-img{
+   width: 200px;
+   height: 200px;
+   display: inline-block;
+   background-color: #ffffff;
+   float: left;
+   margin: 0;
+   padding: 0;
+   vertical-align: top;
+}
+
+.product-img img{
+   width: 200px;
+   height: 200px;
+   margin: 0;
+   padding: 0;
+}
+
+.product-pannel{
+   width: 115px;
+   height: 200px;
+   display: inline-block;
+   float: right;
+   background-color: #f3f3f3;
+   position: relative;
+}
+
+.product-pannel .product-name,
+.product-pannel .product-price
+{
+   height: 70px;
+   line-height: 70px;
+   text-align: center;
+   width: 100%;
+   display: block;
+}
+
+
+.product-pannel .product-name{
+   padding: 0px 10px;
+   width: 95px;
+}
+
+.product-pannel .product-price span{
+   padding: 10px;
+   background-color: #3e3e3e;
+   border-radius: 5px;
+   color: #ffffff;
+}
+
+.product-pannel .see-more{
+   vertical-align: baseline;
+   display: block;
+   position: absolute;
+   bottom: 0px;
+   right: 0px;
+   background-color: #e779e7;
+   height: 30px;
+   width: 70px;
+   line-height: 30px;
+   text-align: center;
+   border-radius: 10px 0 0 0;
+   border-left: 1px solid #c567c5;
+   border-top: 1px solid #c567c5;
+   color: #ffffff;
+}
+
+#ban-pub{
+   height: 200px;
+   width: 960px;
+   padding: 0px;
+   margin: 20px 0;
+   background: #ffffff url(../img/ban-pub.png) center no-repeat;
+}
+
+#ban-info{
+   height: 120px;
+   width: 100%;
+   overflow: hidden;
+   padding: 0px;
+   margin: 20px 0px;
+}
+
+#ban-info > div{
+   width: 220px;
+   height: 100%;
+   padding: 0 10px;
+   margin: 0;
+   display: inline-block;
+}
+
+#ban-info .left{
+   width: 30%;
+   padding: 0;
+   margin: 0;
+   float: left;
+   line-height: 120px;
+   text-align: center;
+}
+
+#ban-info .left img{
+   width: 80%;
+   display: inline;
+}
+
+#ban-info .right{
+   width: 70%;
+   height: 100%;
+   padding: 0;
+   margin: 0;
+   float: right;
+   position: relative;
+}
+
+#ban-info .right .title-ban{
+   width: 100%;
+   padding: 0;
+   margin: 0;
+   display: block;
+   font-size: 11px;
+   text-align: left;
+   position: absolute;
+   bottom: 60px;
+}
+
+#ban-info .right .desc{
+   width: 100%;
+   padding: 0;
+   margin: 0;
+   height: 60px;
+   display: block;
+   font-size: 10px;
+   text-align: left;
+   position: absolute;
+   bottom: 0;
+   color: #e779e7;
+   line-height: 10px;
+}
+
+footer{
+   height: 300px;
+   width: 100%;
+   background-color: #ffffff;
+}
+
+footer .column{
+   width: 220px;
+   display: inline-block;
+   padding: 25px 10px;
+   height: 250px;
+   vertical-align: top;
+}
+
+footer h1{
+   text-indent: 0px;
+}
+
+footer .column > a{
+   display: block;
+   color: #737373;
+   font-size: 11px;
+}
+
+/* FIN RUBIO */

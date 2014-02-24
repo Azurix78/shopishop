@@ -1,6 +1,8 @@
 <?php
 class Article extends AppModel
 {
+    public $belongsTo = array('Picture', 'Product');
+
     public $validate = array(
         'reference' => array(
             'rule'      => 'notEmpty',

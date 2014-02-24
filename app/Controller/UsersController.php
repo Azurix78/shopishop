@@ -159,9 +159,5 @@ class UsersController extends AppController
 
 	public function test()
 	{
-		$users = $this->User->find('all');
-		debug($users);
-
-		$this->set(compact('users'));
 	}
 }

@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="div">
+		<div class="title">Ajouter utilisateur</div>
 		<?php
 		echo $this->Form->create('AdminUsers', array('action' => '/add'));
 		echo $this->Form->input('lastname', array('label' => 'Nom'));
