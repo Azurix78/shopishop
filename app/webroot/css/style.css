@@ -320,3 +320,35 @@ footer .column > a{
    padding: 0 2px;
    margin-right: 0px;
 }
+
+.empty{
+   text-align: center;
+   line-height: 50px;
+   display: block;
+}
+
+.view-product .view-img{
+   display: inline-block;
+   vertical-align: top;
+   margin: 10px;
+   width: 200px;
+}
+
+.view-product .view-img img{
+   width: 200px;
+}
+
+.view-product .product-name{
+   width: 450px;
+   margin: 10px 0;
+   display: inline-block;
+   vertical-align: top;
+}
+
+.view-product .product-name p{
+   text-align: justify;
+}
+
+.view-product .product-name h2 span{
+   font-size: 12px;
+}

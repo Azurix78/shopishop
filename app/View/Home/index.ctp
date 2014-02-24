@@ -2,7 +2,6 @@
 	<div class="div" id="slider">
 	</div>
 	<div class="product-list">
-		<?php debug($random_products); ?>
 		<?php foreach ($random_products as $key => $product)
 		{
 			?>

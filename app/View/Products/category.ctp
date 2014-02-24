@@ -24,6 +24,32 @@
 	--><div class="right">
 		<div class="div products-cat">
 			<div class="title">Produits de la catégorie <?php echo $this->request->params['pass'][0]; ?> <span class="label label-right" style="background-color:<?php echo $cat['Category']['menu_color']; ?>">&nbsp;</span></div>
+			<?php if(count($products) <= 0) echo '<em class="empty">Aucun article disponible</em>'; ?>
 		</div>
+			<?php foreach ($products as $key => $product)
+			{
+				if(count($product['Article']) > 0)
+				{
+				?>
+					<div class="div product-item">
+						<div class="product-img">
+							<img src="/img/<?php echo $product['Picture']['picture']; ?>" alt="photo product" />
+						</div>
+						<div class="product-pannel">
+							<div class="product-name">
+								<span class="product-title"><?php echo $product['Product']['name']; ?></span>
+							</div>
+							<div class="product-price">
+								<span><?php echo $product['Product']['price']; ?> €</span>
+							</div>
+							<a class="see-more" href="/products/view/<?php echo $product['Product']['id']; ?>">
+								Voir plus
+							</a>
+						</div>
+					</div>
+				<?php
+				}
+			}
+			?>
 	</div>
 </div>
