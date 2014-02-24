@@ -8,16 +8,16 @@
 			?>
 				<div class="div product-item">
 					<div class="product-img">
-						<img src="/img/<?php echo $product['Picture']['picture']; ?>" alt="photo product" />
+						<img src="/img/files/<?php echo $product['Picture']['picture']; ?>" alt="photo product" />
 					</div>
 					<div class="product-pannel">
 						<div class="product-name">
-							<span class="product-title"><?php echo $product['Product']['name'] . ' ' . $product['Article']['size'] . ' ' . ucfirst($product['Article']['color']); ?></span>
+							<span class="product-title"><?php echo $product['Product']['name']; ?></span>
 						</div>
 						<div class="product-price">
-							<span><?php echo $product['Article']['price']; ?> €</span>
+							<span><?php echo $product['Product']['price']; ?> €</span>
 						</div>
-						<a class="see-more" href="/Products/">
+						<a class="see-more" href="/Products/view/<?php echo $product['Product']['id']; ?>">
 							Voir plus
 						</a>
 					</div>

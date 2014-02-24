@@ -24,11 +24,6 @@ class Article extends AppModel
             'message'   => 'Vous devez rentrer une taille',
             'allowEmpty' => false,
         ),
-        'price' => array(
-            'rule'      => 'numeric',
-            'message'   => 'Vous devez rentrer un prix',
-            'allowEmpty' => false,
-        ),
         'weight' => array(
             'rule'      => 'numeric',
             'message'   => 'Vous devez rentrer un prix',
