@@ -25,17 +25,17 @@
 						<ul>
 							<li><a href="/Admin" class="active">Home</a></li>
 							<li class="subnav">
-								<a href="/adminusers" >Utilisateurs</a>
+								<a href="/adminusers" >Users</a>
 								<ul class="nav">
 									<li><a href="/adminusers/add">Ajouter un utilisateur</a></li>
 									<li><a href="/adminusers">Modifier une utilisateur</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/Adminusers">Users</a>
+								<a href="/Admincategories">Catégories</a>
 								<ul class="nav">
-									<li><a href="/Adminusers">Afficher les users</a></li>
-									<li><a href="/Adminusers/add">Ajouter un user</a></li>
+									<li><a href="/Admincategories">Afficher les catéfories</a></li>
+									<li><a href="/Admincategories/add">Ajouter une catégorie</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
@@ -43,7 +43,7 @@
 								<ul class="nav">
 									<li><a href="/AdminProducts/">Afficher les produits</a></li>
 									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
-									<li><a href="/AdminProducts">Modifier une marque</a></li>
+									<li><a href="/AdminProducts">Modifier un produit</a></li>
 								</ul>
 							</li>
 							<li class="subnav">

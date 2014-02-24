@@ -67,3 +67,73 @@ table {
 ::-moz-placeholder { color:#242B2B; } /* firefox 19+ */
 :-ms-input-placeholder { color:#242B2B; } /* ie */
 input:-moz-placeholder { color:#242B2B; }
+
+/*Nico Ri*/
+.left{
+   display: inline-block;
+   vertical-align: top;
+   width: 250px;
+   margin-right: 10px;
+}
+
+.right{
+   display: inline-block;
+   vertical-align: top;
+   width: 700px;
+}
+
+.ciblage h5{
+   display: block;
+   margin: 10px 0;
+   padding-left: 2px;
+   border-bottom: solid 1px rgba(0,0,0,0.2);
+}
+
+.ciblage ul li{
+   margin: 3px 10px;
+   display: block;
+   border-bottom: solid 1px rgba(0,0,0,0.05);
+}
+
+.ciblage ul li a{
+   display: block;
+}
+
+.ciblage ul li a .label-right
+{
+   padding: 0 2px;
+}
+
+.products-cat{
+   overflow: hidden;
+}
+
+.products-cat .block-a{
+   width: 200px;
+   padding: 10px;
+   margin: 5px 0 0 5px;
+   display: inline-block;
+   background-color: rgba(0,0,0,0.05);
+}
+
+.products-cat .block-a:hover{
+   background-color: rgba(0,0,0,0.1);
+}
+
+.products-cat .block-a div div{
+   margin-top: 10px;
+}
+.block-a img{
+   max-width: 200px;
+}
+
+.pull-right{
+   display: block;
+   float: right;
+}
+
+.products-cat .label-right
+{
+   padding: 0 2px;
+   margin-right: 0px;
+}

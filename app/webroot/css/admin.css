@@ -1195,7 +1195,7 @@ header nav{
   display: inline-block;
   vertical-align: top;
   height: 50px;
-  margin: 0 80px;
+  float: right;
 }
 
 header nav li{

@@ -28,13 +28,22 @@ class AdminCategoriesController extends AppController
 		if ($this->request->is('post')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
 			$d = $this->request->data;
-			$d['Category']['picture_id'] = 1; // <---- For test purposes only. Must be removed in final version.
 			if ($this->Category->save($d)) {
 				$this->Session->setFlash('L\'entrée a bien été ajoutée');
 				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
 				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
 		}
+		$pictures = $this->Picture->find('all', array(
+				'fields' => array('picture', 'id'),
+			));
+		$select_pictures = array();
+		foreach ($pictures as $key => $picture)
+		{
+			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
+		}
+		$this->set('select_pictures', $select_pictures);
+
 	}
 
 	public function edit($id)

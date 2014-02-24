@@ -1,13 +1,7 @@
 <?php
 class Category extends AppModel
 {
-    public $belongsTo = array(
-        'Picture' => array(
-            'foreign_key' => 'id',
-            'condition' => array('Category.picture_id' => 'Pictures.id'),
-            'limit' => '1',
-        )
-    );
+    public $belongsTo = 'Picture';
 
     public $validate = array(
         'name' => array(
