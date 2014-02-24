@@ -17,6 +17,7 @@ class UsersController extends AppController
 		        $this->Session->setFlash(
 	            	'Bienvenue sur 42 Shop'
 	            );
+	            return $this->redirect($this->Auth->redirectUrl());
 	        }
 	        else
 	        {
