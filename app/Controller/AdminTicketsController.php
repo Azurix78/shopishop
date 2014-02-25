@@ -15,22 +15,9 @@ class AdminTicketsController extends AppController
 		}
 	}
 
-	public function index($status = null)
+	public function index()
 	{
-		// Si le statut est présent et correct.
-		if ($status !== null && in_array($status, array(0, 1, 2))) {
-			$tickets = $this->Ticket->find('all', array('conditions' => array('`Ticket`.status' => $status)));
-			return $this->set(array('tickets' => $tickets));
-		}
-		// Si le statut est présent mais incorrect.
-		else if ($status !== null && !in_array($status, array(0, 1, 2))) {
-			$this->Session->setFlash('Statut de ticket incorrect');
-			return $this->redirect(array('controller' => 'admintickets', 'action' => 'index'));
-		}
-		// Statut absent.
-		else {
-			return $this->set(array('tickets' => $this->Ticket->find('all')));
-		}
+		return $this->set(array('new_tickets' => $this->Ticket->findAllByStatus(0), 'current_tickets' => $this->Ticket->findAllByStatus(1), 'finished_tickets' => $this->Ticket->findAllByStatus(2)));
 	}
 
 	// Cette fonction est prévue pour être appelée par une requête AJAX et renvoie donc du JSON.
