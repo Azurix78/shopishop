@@ -33,7 +33,7 @@
 				?>
 					<div class="div product-item">
 						<div class="product-img">
-							<img src="/img/<?php echo $product['Picture']['picture']; ?>" alt="photo product" />
+							<img src="/img/files/<?php echo $product['Picture']['picture']; ?>" alt="photo product" />
 						</div>
 						<div class="product-pannel">
 							<div class="product-name">

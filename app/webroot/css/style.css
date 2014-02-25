@@ -385,6 +385,7 @@ footer .column > a{
 #quick-cart{
    position: absolute;
    display: none;
+   z-index: 800;
    height: 300px;
    width: 300px;
    top: 100%;
@@ -553,5 +554,9 @@ footer .column > a{
 
 #command{
    cursor: pointer;
+}
+
+.disable{
+   opacity: 0.4;
 }
 

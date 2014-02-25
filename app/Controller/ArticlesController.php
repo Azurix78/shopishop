@@ -6,7 +6,7 @@ class ArticlesController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		//$this->Auth->allow('index');
+		$this->Auth->allow('sizeArray');
 	}
 
 	public function index()
@@ -68,5 +68,13 @@ class ArticlesController extends AppController
 
 		$this->Session->setFlash('Informations invalides');
 		return $this->redirect($this->referer());
+	}
+
+	public function sizeArray()
+	{
+		$this->autoRender = false;
+		$id_product = $this->request->params['pass'][0];
+		$color = $this->request->params['pass'][1];
+		echo json_encode($articles = $this->Article->find('all', array('conditions' => array('color' => $color, 'product_id' => $id_product))));
 	}
 }

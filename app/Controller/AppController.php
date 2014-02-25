@@ -44,8 +44,8 @@ class AppController extends Controller
                     'fields' => array('username' => 'email')
                 )
             )
-        ),
-        'Security' => array('csrfUseOnce' => false)
+        )
+        //'Security' => array('csrfUseOnce' => false)
     );
 
     protected function isAuthorized($role)
@@ -55,6 +55,11 @@ class AppController extends Controller
             return true;
         }
         return false;
+    }
+
+    public function beforeFilter()
+    {
+        if(!$this->Session->read('cart')) $this->Session->write('cart',array('produits' => array(), 'quantity' => 0));
     }
 
 	protected function upload($file, $id = null)

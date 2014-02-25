@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="div"> <a href="/products">Catalogue</a> / <a href="/products/brands">Marques</a> / <?php echo $this->request->params['pass'][0]; ?> </div>
+	<div class="div"> <a href="/products">Catalogue</a> / Tous les produits </div>
 	<div class="left">
 		<div class="div ciblage">
 			<div class="title">Cibler votre recherche</div>
@@ -23,7 +23,7 @@
 	</div><!--
 	--><div class="right">
 		<div class="div products-cat">
-			<div class="title">Produits pour la marque <?php echo $this->request->params['pass'][0]; ?></div>
+			<div class="title">Tous les produits</div>
 			<?php if(count($products) <= 0) echo '<em class="empty">Aucun article disponible</em>'; ?>
 		</div>
 			<?php foreach ($products as $key => $product)
