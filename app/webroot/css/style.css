@@ -139,7 +139,7 @@ input:-moz-placeholder { color:#737373; }
    text-overflow: ellipsis;
 }
 
-.product-pannel .product-price span{
+.product-pannel .product-price span,.product-price span{
    padding: 10px;
    background-color: #3e3e3e;
    border-radius: 5px;
@@ -477,3 +477,8 @@ footer .column > a{
 .view-product .product-name h2 span{
    font-size: 12px;
 }
+
+#command{
+   cursor: pointer;
+}
+
