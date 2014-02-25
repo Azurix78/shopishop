@@ -1161,12 +1161,11 @@ header{
   -o-border-radius: 5px;
   width: 960px;
   margin: 10px auto;
-  overflow: hidden;
 }
 
 header .logo{
   float: left;
-  height: 90px;
+  height: 60px;
   padding: 10px 20px;
 }
 
@@ -1240,9 +1239,9 @@ header nav a:hover{
 #panier
 {
   display: inline-block;
+  position: relative;
   height: 30px;
   line-height: 30px;
-  overflow: hidden;
   margin: 25px 5px;
   border-radius: 3px;
   padding: 0 10px 0 0;
@@ -1250,7 +1249,7 @@ header nav a:hover{
   font-family: 'Molengo', sans-serif;
   width: 70px;
   text-align: right;
-  text-transform: normal;
+  text-transform: none;
   color: #d1d1d1;
   border: solid #cacaca 1px;
   background: transparent url(../img/panier.png) 5px center no-repeat;
