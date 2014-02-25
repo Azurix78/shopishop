@@ -1,7 +1,7 @@
 <?php
 class OrdersController extends AppController
 {
-	public $uses = array('Orders','Article');
+	public $uses = array('Order','Article');
 
 	function beforeFilter()
 	{
