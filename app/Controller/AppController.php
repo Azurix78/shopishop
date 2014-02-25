@@ -60,6 +60,12 @@ class AppController extends Controller
     public function beforeFilter()
     {
         if(!$this->Session->read('cart')) $this->Session->write('cart',array('produits' => array(), 'quantity' => 0));
+        $cart = $this->Session->read('cart');
+        $quantity = 0;
+        foreach ($cart['produits'] as $key => $value) {
+            $quantity += $value['Article']['quantity'] * $value['Product']['price'];
+        }
+        $this->set('quantity', $quantity);
     }
 
 	protected function upload($file, $id = null)

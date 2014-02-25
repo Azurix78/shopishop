@@ -54,17 +54,20 @@
 					<a href="/Products">Products</a>
 					<a href="/Contacts">Contact</a>
 					<div class="pull-right">
-						<a id="panier" href="/Cart">
+						<a id="panier" href="/orders/cart">
 							Panier
 							<span id="quick-cart" class="div">
-								<span class="title">Panier</span>
+								<span class="title">Panier<span class="pull-right btn label label-warning" style="margin:5px; line-height:20px">Accéder au panier</span></span>
 								<span id="quick-cart-content" class="div">
-									<span class="quick-article-item">
-										<span class="quick-article-name">Sandale</span><!--
-										--><span class="quick-article-quantity">x2</span><!--
-										--><span class="quick-article-price">10.00 €</span>
-									</span>
-									<span class="quick-cart-total"></span>
+									<?php 
+									foreach($this->Session->read('cart')['produits'] as $key => $produit){ ?>
+										<span class="quick-article-item">
+											<span class="quick-article-name"><?php echo $produit['Product']['name']; ?></span><!--
+											--><span class="quick-article-quantity">x<?php echo $produit['Article']['quantity']; ?></span><!--
+											--><span class="quick-article-price"><?php echo $produit['Product']['price'] * $produit['Article']['quantity']; ?> €</span>
+										</span>
+									<?php } ?>
+									<span class="quick-cart-total">Total : <?php echo $quantity; ?> €</span>
 								</span>
 							</span>
 						</a>

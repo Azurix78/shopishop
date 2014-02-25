@@ -1,9 +1,11 @@
-<div class="div">
+<div class="div cart">
 	<div class="title">Panier</div>
 	<table>
 		<tr>
 			<th class="apercu">Photo</th>
 			<th>Nom</th>
+			<th>Color</th>
+			<th>Taille</th>
 			<th>Prix à l'unité</th>
 			<th>Quantité</th>
 			<th>Total</th>
@@ -14,6 +16,8 @@
 			<tr>
 				<td class="apercu"><img src="/img/files/<?php echo $produit['Picture']['picture']; ?>" alt=""></td>
 				<td><?php echo $produit['Product']['name']; ?></td>
+				<td><?php echo $produit['Article']['color']; ?></td>
+				<td><?php echo $produit['Article']['size']; ?></td>
 				<td><b class="unit"><?php echo $produit['Product']['price']; ?> €</b></td>
 				<td>
 					<input type="number" class="small-input produitQuantity" value="<?php echo $produit['Article']['quantity']; ?>" data-key="<?php echo $key; ?>">

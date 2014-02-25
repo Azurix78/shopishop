@@ -63,12 +63,7 @@ class OrdersController extends AppController
 
 	public function cart()
 	{
-		$cart = $this->Session->read('cart');
-		$quantity = 0;
-		foreach ($cart['produits'] as $key => $value) {
-			$quantity += $value['Article']['quantity'] * $value['Product']['price'];
-		}
-		$this->set('quantity', $quantity);
+		//
 	}
 
 	public function changeCart($key){

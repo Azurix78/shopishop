@@ -499,6 +499,10 @@ footer .column > a{
    height: 100%;
 }
 
+.quick-cart-total{
+   color: #dc92df;
+}
+
 /* FIN RUBIO */
 /*Nico Ri*/
 .left{
@@ -610,3 +614,20 @@ footer .column > a{
    opacity: 0.4;
 }
 
+.produitQuantity{
+   border: solid 3px #dc92df !important;
+}
+
+.cart table{
+   width: 96%;
+}
+
+.cart table tr td:first-child{
+   width: 100px;
+   height: 100px;
+}
+
+.cart table tr td img{
+   max-width: 100px;
+   max-height: 100px;
+}
