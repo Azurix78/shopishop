@@ -7,7 +7,7 @@ class ProductsController extends AppController
 	{
 		parent::beforeFilter();
 		$this->Auth->allow('index','category','brands','view');
-		$brands = $this->Brand->find('all', array('conditions' => array('brand.status'=> 0)));
+		$brands = $this->Brand->find('all', array('conditions' => array('Brand.status'=> 0)));
 		$categories = $this->Category->find('all');
 		$this->set('brands', $brands);
 		$this->set('categories', $categories);
@@ -26,10 +26,16 @@ class ProductsController extends AppController
 		else
 		{
 			$cat = $this->Category->find('first', array('conditions' => array('Category.id' => $this->request->params['pass'][1])));
-			$products = $this->Product->find('all', array('conditions' => array('Category_id' => $this->request->params['pass'][1])));
+			$products = $this->Product->find('all', array('conditions' => array('Category_id' => $this->request->params['pass'][1],'Product.status'=> 1)));
 			$this->set('products', $products);
 			$this->set('cat', $cat);
 		} 
+	}
+
+	public function all()
+	{
+			$products = $this->Product->find('all', array('conditions' => array('Product.status'=> 1)));
+			$this->set('products', $products);
 	}
 
 	public function brands()
@@ -39,7 +45,7 @@ class ProductsController extends AppController
 		}
 		else
 		{
-			$products = $this->Product->find('all', array('conditions' => array('brand_id' => $this->request->params['pass'][1])));
+			$products = $this->Product->find('all', array('conditions' => array('brand_id' => $this->request->params['pass'][1],'Product.status'=> 1)));
 			$this->set('products', $products);
 		} 
 	}

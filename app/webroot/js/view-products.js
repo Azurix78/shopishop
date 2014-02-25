@@ -13,7 +13,7 @@ $('#command').click(function(){
 		else
 		{
 			$('#size').css('border', 'none');
-			// commander
+			window.location = "/orders/addToCart/" + articles[$('#size option:selected').val()].Article.id;
 		}
 	}
 });
@@ -46,4 +46,19 @@ $('#size').on('change',function(){
 	{
 		$('#command').attr('class','disable');
 	}
+});
+
+$('.produitQuantity').on('change', function(){
+    $.ajax({
+        url : "/orders/changeCart/"+$(this).data('key'),
+        dataType : 'JSON',
+        type : 'POST',
+        data : {quantity:$(this).val()},
+        success: function(response){
+            if(response)
+            {
+                location.reload();
+            }
+        } 
+    });
 });
