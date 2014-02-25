@@ -52,7 +52,20 @@
 					<a href="/">Home</a>
 					<a href="/Products">Products</a>
 					<a href="/Contacts">Contact</a>
-					<a id="panier" href="/Cart">Panier</a>
+					<a id="panier" href="/Cart">
+						Panier
+						<span id="quick-cart" class="div">
+							<span class="title">Panier</span>
+							<span id="quick-cart-content" class="div">
+								<span class="quick-article-item">
+									<span class="quick-article-name">Sandale</span><!--
+									--><span class="quick-article-quantity">x2</span><!--
+									--><span class="quick-article-price">10.00 €</span>
+								</span>
+								<span class="quick-cart-total"></span>
+							</span>
+						</span>
+					</a>
 					<div id="header_search">
 						<form class="search">
 							<input type="text" placeholder="search" />

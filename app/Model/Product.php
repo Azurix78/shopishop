@@ -27,6 +27,11 @@ class Product extends AppModel
             'message'   => 'Image invalide',
             'allowEmpty' => false,
         ),
+        'description' => array(
+            'rule'      => 'notEmpty',
+            'message'   => 'Image invalide',
+            'allowEmpty' => false,
+        ),
         'category_id' => array(
             'rule'      => 'numeric',
             'message'   => 'Catégorie invalide',

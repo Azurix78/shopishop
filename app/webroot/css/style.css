@@ -374,6 +374,67 @@ footer .column > a{
    color: #ffffff;
 }
 
+#panier:hover #quick-cart{
+   display: block;
+}
+
+#quick-cart:hover #quick-cart{
+   display: block;
+}
+
+#quick-cart{
+   position: absolute;
+   display: none;
+   height: 300px;
+   width: 300px;
+   top: 100%;
+   right: 0%;
+   overflow: auto;
+   margin: 0;
+
+}
+
+#quick-cart .title
+{
+   text-align: left;
+}
+
+#quick-cart-content{
+   display: block;
+   min-height: 240px;
+}
+
+.quick-article-item{
+   display: block;
+   height: 40px;
+   width: 100%;
+   border-bottom: 1px solid #cacaca;
+   line-height: 40px;
+   margin: 0;
+   padding: 0;
+   color: #3e3e3e;
+}
+
+.quick-article-name{
+   display: inline-block;
+   width: 50%;
+   height: 100%;
+   text-align: left;
+}
+
+.quick-article-quantity{
+   display: inline-block;
+   width: 25%;
+   height: 100%;
+   text-align: center;
+}
+
+.quick-article-price{
+   display: inline-block;
+   width: 25%;
+   height: 100%;
+   text-align: right;
+}
 
 /* FIN RUBIO */
 /*Nico Ri*/
