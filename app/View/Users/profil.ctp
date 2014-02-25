@@ -11,5 +11,10 @@
 		    array('controller' => 'Addresses'),
 		    array('class' => 'btn btn-blue')
 		);
+		echo $this->Html->link(
+		    'Mes commandes',
+		    array('controller' => 'orders'),
+		    array('class' => 'btn btn-green')
+		);
 	?>
 </div>

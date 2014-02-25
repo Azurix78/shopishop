@@ -40,7 +40,6 @@ class AdminPromosController extends AppController
 
 	public function edit($id)
 	{
-			var_dump($this->request->is('post'));
 		if ($this->request->is('post') || $this->request->is('put')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
 			$d = $this->request->data;

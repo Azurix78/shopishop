@@ -34,7 +34,6 @@ class TicketsController extends AppController
 		if ($this->request->is('post') || $this->request->is('put')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
 			$d = $this->request->data;
-			var_dump($d);
 			$d['Message']['ticket_id'] = $id;
 			$d['Message']['staff'] = $this->Auth->user('role') ? $this->Auth->user('role') % 2 : 0; // -----> Super ternaire qui déchire ta race !!
 			if ($this->Message->save($d, true, array('ticket_id', 'email', 'content', 'staff'))) {
