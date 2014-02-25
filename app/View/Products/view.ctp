@@ -24,17 +24,30 @@
 	--><div class="right">
 		<div class="div products-cat view-product">
 			<div class="view-img">
-				<img src="/img/<?php echo $product['Picture']['picture']; ?>" alt="photo product" />
+				<img src="/img/files/<?php echo $product['Picture']['picture']; ?>" class="img-product" alt="photo product" />
 			</div><!--
 				--><div class="product-name">
-					<h2><?php echo $product['Product']['name']; ?><span class="pull-right">Ref : 0765497606</a></h2>
+					<h2><?php echo $product['Product']['name']; ?><span class="pull-right">Ref : <span id="ref"></span></h2>
+					<p><u>Marque</u> : <?php echo $product['Brand']['name']; ?></p>
 					<p><?php echo $product['Product']['description']; ?></p>
+					<p><u>Couleurs et tailles :</u><br><br>
+						<label>Couleur :</label>
+						<select id="color" data-id="<?php echo $product['Product']['id']; ?>">
+							<option value=""></option>
+							<?php foreach ($color as $key => $value) { ?>
+								<option value="<?php echo $value ?>"><?php echo $key; ?></option>
+							<?php } ?>
+						</select>
+						<label>Taille :</label>
+						<select id="size"></select>
+					</p>
 					<hr><br>
 					<div class="product-price pull-right">
 						<span><?php echo $product['Product']['price']; ?> €</span>
-						<span id="command">Commander</span>
+						<span id="command" class="disable">Ajouter au panier</span>
 					</div>
 				</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="/js/view-products.js"></script>

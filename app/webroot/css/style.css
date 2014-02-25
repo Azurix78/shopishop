@@ -482,3 +482,7 @@ footer .column > a{
    cursor: pointer;
 }
 
+.disable{
+   opacity: 0.4;
+}
+

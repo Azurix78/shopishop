@@ -25,8 +25,8 @@ class ProductsController extends AppController
 		}
 		else
 		{
-			$cat = $this->Category->find('first', array('conditions' => array('category.id' => $this->request->params['pass'][1])));
-			$products = $this->Product->find('all', array('conditions' => array('category_id' => $this->request->params['pass'][1])));
+			$cat = $this->Category->find('first', array('conditions' => array('Category.id' => $this->request->params['pass'][1])));
+			$products = $this->Product->find('all', array('conditions' => array('Category_id' => $this->request->params['pass'][1])));
 			$this->set('products', $products);
 			$this->set('cat', $cat);
 		} 
@@ -51,8 +51,16 @@ class ProductsController extends AppController
 		}
 		else
 		{
-			$product = $this->Product->find('first', array('conditions' => array('product.id' => $id)));
+			$product = $this->Product->find('first', array('conditions' => array('Product.id' => $id)));
+			$color = array();
+			foreach ($product['Article'] as $key => $value) {
+				if(!array_key_exists($value['color'], $color))
+				{
+					$color[$value['color']] = $value['id'];
+				}
+			}
 			$this->set('product', $product);
+			$this->set('color', $color);
 		} 
 	}
 }

@@ -1165,22 +1165,21 @@ header{
 }
 
 header .logo{
-  display: inline-block;
-  vertical-align: top;
+  float: left;
   height: 90px;
   padding: 10px 20px;
 }
 
 header nav{
-  display: inline-block;
-  vertical-align: top;
+  float: right;
+  /* vertical-align: top; */
   height: 80px;
-  margin: 0 80px;
+  margin: 0 20px 0 80px;
 }
 
 header nav a{
-  display: inline-block;
-  vertical-align: top;
+  float: left;
+  /* vertical-align: top; */
   height: 80px;
   line-height: 80px;
   padding: 0 25px;
@@ -1244,7 +1243,7 @@ header nav a:hover{
   height: 30px;
   line-height: 30px;
   overflow: hidden;
-  margin: 0;
+  margin: 25px 5px;
   border-radius: 3px;
   padding: 0 10px 0 0;
   vertical-align: middle;
