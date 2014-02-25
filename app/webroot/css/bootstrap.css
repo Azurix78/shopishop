@@ -1262,6 +1262,7 @@ table{
   margin: 10px auto;
   border-radius: 5px 5px 10px 10px;
   overflow: hidden;
+  background-color: #fcfcfc;
 }
 
 th{
@@ -1280,13 +1281,19 @@ th{
 }
 
 td{
-  border-bottom: 1px solid #2b2b2b;
+  border: 1px solid #cacaca;
   padding: 5px;
   vertical-align: middle;
+  text-align: center;
 }
 
 tr:last-child{
   border-bottom: 6px solid #2b2b2b;
+}
+
+table tr:nth-child(2n+1)
+{
+    background-color: #fcd9fa;
 }
 
 select{

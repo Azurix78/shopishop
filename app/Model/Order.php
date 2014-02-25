@@ -1,6 +1,8 @@
 <?php
 class Order extends AppModel
 {
+    public $hasMany = 'Purchase';
+
     public $validate = array(
         'gift_wrap' => array(
             'rule'       => 'numeric',
