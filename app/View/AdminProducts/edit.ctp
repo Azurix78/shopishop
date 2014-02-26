@@ -18,7 +18,7 @@
 					<?php } ?>
 				</div>
 				<input type="hidden" name="img" class="img">
-				<? echo $this->Form->end('Ajouter', true);
+				<? echo $this->Form->end('Editer', true);
 			?>
 	</div>
 	<div class="div">

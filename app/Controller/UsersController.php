@@ -14,16 +14,12 @@ class UsersController extends AppController
 	        {
 	        	$this->User->id = $this->Auth->user('id');
 		        $this->User->saveField('last_ip', $_SERVER['REMOTE_ADDR']);
-		        $this->Session->setFlash(
-	            	'Bienvenue sur 42 Shop'
-	            );
+		        $this->Session->setFlash('Bienvenue sur 42 Shop','default',array('class'=>'container alert'));
 	            return $this->redirect($this->Auth->redirectUrl());
 	        }
 	        else
 	        {
-	            $this->Session->setFlash(
-	            	'Email ou mot de passe incorrect. Si vous venez de vous inscrire, merci de consulter vos emails afin de valider votre compte.'
-	            );
+	            $this->Session->setFlash('Email ou mot de passe incorrect. Si vous venez de vous inscrire, merci de consulter vos emails afin de valider votre compte.','default',array('class'=>'container alert btn-red'));
 	        }
 	    }
 	}
@@ -47,13 +43,13 @@ class UsersController extends AppController
 				$user = $this->User->findById($id);
 				if($this->validation_email($user['User']['email'], $data['User']['salt']))
 	            {
-					$this->Session->setFlash('Inscription validée ' . $data['User']['salt']);
+					$this->Session->setFlash('Inscription validée ' . $data['User']['salt'],'default',array('class'=>'container alert btn-green'));
 	                return $this->redirect($this->referer());
 	            }
-	            $this->Session->setFlash('Erreur lors de l\'envoi du mail');
+	            $this->Session->setFlash('Erreur lors de l\'envoi du mail','default',array('class'=>'container alert btn-red'));
                 return $this->redirect(array('controller' => 'Users', 'action' => 'register'));
 			}
-            $this->Session->setFlash('Erreur lors de l\'inscription');
+            $this->Session->setFlash('Erreur lors de l\'inscription','default',array('class'=>'container alert btn-red'));
 		}
 	}
 
@@ -116,10 +112,10 @@ class UsersController extends AppController
 
 			if($this->User->save($this->request->data, true))
 			{
-				$this->Session->setFlash('Compte modifié');
+				$this->Session->setFlash('Compte modifié','default',array('class'=>'container alert btn-green'));
                 return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
 			}
-			$this->Session->setFlash('Informations invalides');
+			$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
 		}
 
@@ -137,10 +133,10 @@ class UsersController extends AppController
 
 			if($this->User->save($this->request->data, true))
 			{
-				$this->Session->setFlash('Mot de passe modifié');
+				$this->Session->setFlash('Mot de passe modifié','default',array('class'=>'container alert btn-green'));
                 return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
 			}
-			$this->Session->setFlash('Informations invalides');
+			$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
 		}
 		return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
@@ -151,10 +147,10 @@ class UsersController extends AppController
 		$this->User->id = $this->Auth->user('id');
 		if($this->User->saveField('active', 0))
 		{
-			$this->Session->setFlash('Votre compte est maintenant désactivé');
+			$this->Session->setFlash('Votre compte est maintenant désactivé','default',array('class'=>'container alert btn-green'));
 			$this->redirect($this->Auth->logout());
 		}
-		$this->Session->setFlash('Erreur lors de la désactivation');
+		$this->Session->setFlash('Erreur lors de la désactivation','default',array('class'=>'container alert btn-red'));
 		return $this->redirect(array('controller' => 'Users', 'action' => 'edit'));
 	}
 

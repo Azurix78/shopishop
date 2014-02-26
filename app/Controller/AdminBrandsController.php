@@ -28,10 +28,10 @@ class AdminbrandsController extends AppController
             if($this->upload($this->request->data['AdminBrands']['image_file']) || isset($this->request->data['img']))
             {
             	$this->request->data['AdminBrands']['picture_id'] = (int) $this->Picture->getInsertID();
-                if(isset($this->request->data['img'])) $this->request->data['AdminBrands']['picture_id'] = $this->request->data['img'];
+                if(!empty($this->request->data['img'])) $this->request->data['AdminBrands']['picture_id'] = $this->request->data['img'];
                 if($this->Brand->save($this->request->data['AdminBrands']))
                 {
-                    $this->Session->setFlash('Marque ajouté');
+                    $this->Session->setFlash('Marque ajouté','default',array('class'=>'container alert btn-green'));
                     $this->redirect('/adminbrands');
                 }
             }
@@ -59,10 +59,10 @@ class AdminbrandsController extends AppController
 
             if(isset($this->request->data['img'])) $this->request->data['AdminBrands']['picture_id'] = $this->request->data['img'];
             if ($this->Brand->save($this->request->data['AdminBrands'])) {
-                $this->Session->setFlash(__('Marque modifiée'));
+                $this->Session->setFlash('Marque modifiée','default',array('class'=>'container alert btn-green'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(__('Impossible de modifié la marque.'));
+            $this->Session->setFlash('Impossible de modifié la marque.','default',array('class'=>'container alert btn-red'));
 
         }
 
@@ -88,10 +88,10 @@ class AdminbrandsController extends AppController
         $this->Brand->id = $id;
         if($brand['Brand']['status'] == 0){
             $this->Brand->saveField('status', 1);
-            $this->Session->setFlash(__('Marque desactivée'));
+            $this->Session->setFlash('Marque desactivée','default',array('class'=>'container alert btn-red'));
         } else {
             $this->Brand->saveField('status', 0);
-            $this->Session->setFlash(__('Marque activée'));
+            $this->Session->setFlash('Marque activée','default',array('class'=>'container alert btn-green'));
         }
 
         $this->redirect('/adminbrands/');

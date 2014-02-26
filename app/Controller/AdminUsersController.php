@@ -10,7 +10,7 @@ class AdminUsersController extends AppController
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
-			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page','default',array('class'=>'container alert btn-red'));
 			return $this->redirect($this->Auth->redirectUrl());
 		}
 	}
@@ -49,10 +49,10 @@ class AdminUsersController extends AppController
 
 			if($this->User->save($data, true))
 			{
-				$this->Session->setFlash('Utilisateur modifié');
+				$this->Session->setFlash('Utilisateur modifié','default',array('class'=>'container alert btn-green'));
                 return $this->redirect(array('controller' => 'AdminUsers', 'action' => 'edit', $id));
 			}
-			$this->Session->setFlash('Informations invalides');
+			$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'AdminUsers', 'action' => 'edit', $id));
 		}
 
@@ -96,7 +96,7 @@ class AdminUsersController extends AppController
 		{
 			if($this->User->saveField('active', 0))
 			{
-				$this->Session->setFlash('Utilisateur désactivé');
+				$this->Session->setFlash('Utilisateur désactivé','default',array('class'=>'container alert btn-green'));
 				return $this->redirect($this->referer());
 			}
 		}
@@ -104,12 +104,12 @@ class AdminUsersController extends AppController
 		{
 			if($this->User->saveField('active', 1))
 			{
-				$this->Session->setFlash('Utilisateur activé');
+				$this->Session->setFlash('Utilisateur activé','default',array('class'=>'container alert btn-green'));
 				return $this->redirect($this->referer());
 			}
 		}
 
-		$this->Session->setFlash('Erreur lors de la sauvegarde');
+		$this->Session->setFlash('Erreur lors de la sauvegarde','default',array('class'=>'container alert btn-red'));
 		return $this->redirect($this->referer());
 	}
 
@@ -132,16 +132,16 @@ class AdminUsersController extends AppController
 	    $this->User->id = $id;
 	    if($this->User->saveField('password', $new_pass))
 		{
-			$this->Session->setFlash('Mot de passe modifié');
+			$this->Session->setFlash('Mot de passe modifié','default',array('class'=>'container alert btn-green'));
 			if($this->password_email($user['User']['email'], $new_pass))
             {
                 return $this->redirect($this->referer());
             }
-            $this->Session->setFlash('Erreur lors de l\'envoi du mail');
+            $this->Session->setFlash('Erreur lors de l\'envoi du mail','default',array('class'=>'container alert btn-red'));
 			return $this->redirect($this->referer());
 		}
 
-		$this->Session->setFlash('Erreur lors de modification de mot de passe');
+		$this->Session->setFlash('Erreur lors de modification de mot de passe','default',array('class'=>'container alert btn-red'));
 		return $this->redirect($this->referer());
 	}
 
@@ -158,10 +158,10 @@ class AdminUsersController extends AppController
 
 			if($this->User->save($data, true))
 			{
-				$this->Session->setFlash('Utilisateur créé');
+				$this->Session->setFlash('Utilisateur créé','default',array('class'=>'container alert btn-green'));
                 return $this->redirect(array('controller' => 'AdminUsers', 'action' => 'add'));
 			}
-			$this->Session->setFlash('Informations invalides');
+			$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 		}
 
 		$tmp_roles = $this->Role->find('all');

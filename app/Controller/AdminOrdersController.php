@@ -10,7 +10,7 @@ class AdminOrdersController extends AppController
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
-			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page','default',array('class'=>'container alert btn-red'));
 			return $this->redirect($this->Auth->redirectUrl());
 		}
 	}
@@ -24,7 +24,7 @@ class AdminOrdersController extends AppController
 		}
 		// Si le statut est présent mais incorrect.
 		else if ($status !== null && !in_array($status, array(0, 1, 2))) {
-			$this->Session->setFlash('Statut de commande incorrect');
+			$this->Session->setFlash('Statut de commande incorrect','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'adminorders', 'action' => 'index'));
 		}
 		// Statut absent.
@@ -63,14 +63,14 @@ class AdminOrdersController extends AppController
 		else if ($id && is_int(intval($id))) {
 			$order = $this->Order->findById($id);
 			if ($order == null) {
-				$this->Session->setFlash('Commande inexistante');
+				$this->Session->setFlash('Commande inexistante','default',array('class'=>'container alert btn-red'));
 				return $this->redirect(array('controller' => 'adminorders', 'action' => 'index'));
 			}
 			return $this->set(array('order_id' => $id, 'order' => $order));
 		}
 		// Si l'ID est présente mais incorrecte.
 		else if ($id && !is_int(intval($id))) {
-			$this->Session->setFlash('Commande inexistante');
+			$this->Session->setFlash('Commande inexistante','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'adminorders', 'action' => 'index'));
 		}
 	}

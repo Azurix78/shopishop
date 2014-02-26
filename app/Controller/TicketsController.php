@@ -15,7 +15,7 @@ class TicketsController extends AppController
 		if ($id && is_int(intval($id))) {
 			$ticket = $this->Ticket->findById($id);
 			if ($ticket == null) {
-				$this->Session->setFlash('Ticket inexistant');
+				$this->Session->setFlash('Ticket inexistant','default',array('class'=>'container alert btn-red'));
 				return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
 			}
 			$messages = $this->Message->find('all', array('conditions' => array('ticket_id' => $id)));
@@ -23,7 +23,7 @@ class TicketsController extends AppController
 		}
 		// Si l'ID du ticket est présente mais incorrecte.
 		else if ($id && !is_int(intval($id))) {
-			$this->Session->setFlash('Ticket inexistant');
+			$this->Session->setFlash('Ticket inexistant','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
 		}
 		// ID absente.
@@ -37,9 +37,9 @@ class TicketsController extends AppController
 			$d['Message']['ticket_id'] = $id;
 			$d['Message']['staff'] = $this->Auth->user('role') ? $this->Auth->user('role') % 2 : 0; // -----> Super ternaire qui déchire ta race !!
 			if ($this->Message->save($d, true, array('ticket_id', 'email', 'content', 'staff'))) {
-				$this->Session->setFlash('Le message a bien été ajoutée');
+				$this->Session->setFlash('Le message a bien été ajoutée','default',array('class'=>'container alert btn-green'));
 			} else
-				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout du message');
+				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout du message','default',array('class'=>'container alert btn-red'));
 			return $this->redirect(array('controller' => 'tickets', 'action' => 'index', $id));
 		}
 	}
@@ -55,10 +55,10 @@ class TicketsController extends AppController
 				return $this->redirect(array('controller' => 'orders', 'action' => 'index'));
 			$d['Ticket']['order_id'] = $id;
 			if ($this->Ticket->save($d, true, array('email', 'content', 'category', 'object', 'order_id'))) {
-				$this->Session->setFlash('Le ticket a bien été ajoutée');
+				$this->Session->setFlash('Le ticket a bien été ajoutée','default',array('class'=>'container alert btn-green'));
 				return $this->redirect(array('controller' => 'tickets', 'action' => 'index', $this->Ticket->getLastInsertID()));
 			} else
-				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout du ticket');
+				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout du ticket','default',array('class'=>'container alert btn-red'));
 		}
 	}
 

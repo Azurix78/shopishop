@@ -29,10 +29,10 @@ class AddressesController extends AppController
 			$this->Address->create();
 			if($this->Address->save($data, true))
 			{
-				$this->Session->setFlash('Adresse rajoutée aux favoris');
+				$this->Session->setFlash('Adresse rajoutée aux favoris','default',array('class'=>'container alert btn-green'));
                 return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
             }
-            $this->Session->setFlash('Informations invalides');
+            $this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
             return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
 		}
 	}
@@ -49,11 +49,11 @@ class AddressesController extends AppController
 		{
 			if($this->Address->delete($id))
 			{
-				$this->Session->setFlash('Adresse effacée');
+				$this->Session->setFlash('Adresse effacée','default',array('class'=>'container alert btn-green'));
 				return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
 			}
 		}
-		$this->Session->setFlash('Informations invalides');
+		$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 		return $this->redirect(array('controller' => 'Addresses', 'action' => 'index'));
 	}
 }

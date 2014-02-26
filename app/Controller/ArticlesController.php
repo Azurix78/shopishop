@@ -35,12 +35,12 @@ class ArticlesController extends AppController
 
 			if($this->Article->save($data, true))
 			{
-				$this->Session->setFlash('Article ajouté');
+				$this->Session->setFlash('Article ajouté','default',array('class'=>'container alert btn-green'));
 	            return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
 			}
 			else
 			{
-				$this->Session->setFlash('Informations invalides');
+				$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 	            return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
 			}
 		}
@@ -60,7 +60,7 @@ class ArticlesController extends AppController
 		{
 			if($this->Article->saveField('status', 0))
 			{
-				$this->Session->setFlash('Article désactivé');
+				$this->Session->setFlash('Article désactivé','default',array('class'=>'container alert btn-green'));
 				return $this->redirect($this->referer());
 			}
 		}
@@ -68,12 +68,12 @@ class ArticlesController extends AppController
 		{
 			if($this->Article->saveField('status', 1))
 			{
-				$this->Session->setFlash('Article activé');
+				$this->Session->setFlash('Article activé','default',array('class'=>'container alert btn-green'));
 				return $this->redirect($this->referer());
 			}
 		}
 
-		$this->Session->setFlash('Informations invalides');
+		$this->Session->setFlash('Informations invalides','default',array('class'=>'container alert btn-red'));
 		return $this->redirect($this->referer());
 	}
 

@@ -10,7 +10,7 @@ class AdminTicketsController extends AppController
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
-			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page','default',array('class'=>'container alert btn-red'));
 			return $this->redirect($this->Auth->redirectUrl());
 		}
 	}

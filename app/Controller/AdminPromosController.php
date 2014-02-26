@@ -8,7 +8,7 @@ class AdminPromosController extends AppController
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
-			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page','default',array('class'=>'container alert btn-red'));
 			return $this->redirect($this->Auth->redirectUrl());
 		}
 	}
@@ -31,10 +31,10 @@ class AdminPromosController extends AppController
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
 			$d = $this->request->data;
 			if ($this->Promo->save($d)) {
-				$this->Session->setFlash('L\'entrée a bien été ajoutée');
+				$this->Session->setFlash('L\'entrée a bien été ajoutée','default',array('class'=>'container alert btn-green'));
 				return $this->redirect(array('controller' => 'adminpromos', 'action' => 'index'));
 			} else
-				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
+				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée','default',array('class'=>'container alert btn-red'));
 		}
 	}
 
@@ -45,10 +45,10 @@ class AdminPromosController extends AppController
 			$d = $this->request->data;
 			$d['Promo']['id'] = $id;
 			if ($this->Promo->save($d, true, array('limit_date'))) {
-				$this->Session->setFlash('Les informations ont bien été modifiées');
+				$this->Session->setFlash('Les informations ont bien été modifiées','default',array('class'=>'container alert btn-green'));
 //				return $this->redirect(array('controller' => 'promos', 'action' => 'index'));
 			} else
-				$this->Session->setFlash('Une erreur s\'est produite lors de la modification des informations');
+				$this->Session->setFlash('Une erreur s\'est produite lors de la modification des informations','default',array('class'=>'container alert btn-red'));
 		}
 		$result = $this->Promo->findById($id);
 		$this->data = $result;

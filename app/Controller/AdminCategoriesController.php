@@ -9,7 +9,7 @@ class AdminCategoriesController extends AppController
 		$this->layout = 'admin';
 		if( ! $this->isAuthorized($this->Auth->user('Role')['name']))
 		{
-			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page');
+			$this->Session->setFlash('Vous n\'avez pas les droits nécessaires pour accéder à cette page','default',array('class'=>'container alert btn-red'));
 			return $this->redirect($this->Auth->redirectUrl());
 		}
 	}
@@ -36,10 +36,10 @@ class AdminCategoriesController extends AppController
                 $tab = array();
                 $tab['Category'] = $this->request->data['AdminCategories'];
 				if ($this->Category->save($tab)) {
-					$this->Session->setFlash('L\'entrée a bien été ajoutée');
+					$this->Session->setFlash('L\'entrée a bien été ajoutée','default',array('class'=>'container alert btn-green'));
 					return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 				} else
-					$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
+					$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée','default',array('class'=>'container alert btn-red'));
 				}
 			}
 		$this->set('pictures', $this->Picture->find('all', array('conditions' => array('Picture.status' => 0))));
@@ -61,10 +61,10 @@ class AdminCategoriesController extends AppController
             $tab = array();
             $tab['Category'] = $this->request->data['AdminCategories'];
 			if ($this->Category->save($tab)) {
-				$this->Session->setFlash('Les informations ont bien été modifiées');
+				$this->Session->setFlash('Les informations ont bien été modifiées','default',array('class'=>'container alert btn-green'));
 				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
-				$this->Session->setFlash('Une erreur s\'est produite lors de la modification des informations');
+				$this->Session->setFlash('Une erreur s\'est produite lors de la modification des informations','default',array('class'=>'container alert btn-red'));
 		}
 		$this->data = $result;
 		$this->set('category', $result);

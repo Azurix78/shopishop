@@ -131,7 +131,7 @@ class OrdersController extends AppController
 
 		$this->Session->delete('cart');
 
-		$this->Session->setFlash('Commande effectuée');
+		$this->Session->setFlash('Commande effectuée','default',array('class'=>'container alert btn-green'));
         return $this->redirect(array('controller' => 'orders', 'action' => 'cart'));
 
 	}

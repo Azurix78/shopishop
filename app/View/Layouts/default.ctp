@@ -31,7 +31,9 @@
 					<?php
 				}
 				else
-				{
+				{ ?>
+					<a id="quick-profil" href="/Users/edit">Mon profil</a>
+					<?php
 					if(AuthComponent::user('Role')['name'] == 'Admin')
 					{
 						?>
@@ -39,7 +41,6 @@
 						<?php
 					}
 					?>
-					<a id="quick-profil" href="/Users/edit">Mon profil</a>
 					<a id="quick-logout" href="/users/logout">Se deconnecter</a>
 					<?php
 				}
@@ -52,7 +53,7 @@
 				<nav>
 					<a href="/">Home</a>
 					<a href="/Products">Products</a>
-					<a href="/Contacts">Contact</a>
+					<a href="/Products/category">Catégories</a>
 					<div class="pull-right">
 						<a id="panier" href="/orders/cart">
 							Panier

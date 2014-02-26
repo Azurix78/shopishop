@@ -105,8 +105,16 @@ class ProductsController extends AppController
 			{
 				$products[$value['Product']['id']] = $value;
 			}
+			if(preg_match('/' . strtolower($q) . '/', strtolower($value['Brand']['name'])))
+			{
+				$products[$value['Product']['id']] = $value;
+			}			
 			foreach ($value['Article'] as $key => $val) {
 				if(preg_match('/' . strtolower($q) . '/', strtolower($val['reference'])))
+				{
+					$products[$value['Product']['id']] = $value;
+				}
+				if(preg_match('/' . strtolower($q) . '/', strtolower($val['color'])))
 				{
 					$products[$value['Product']['id']] = $value;
 				}

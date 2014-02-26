@@ -56,7 +56,7 @@
 					);
 				?>
 			</div>
-			<?php echo $this->Form->end('Ajouter', true); ?>
+			<?php echo $this->Form->end('Editer', true); ?>
 		</div>
 		<div class="div">
 			<div class="title">Reset du password</div>

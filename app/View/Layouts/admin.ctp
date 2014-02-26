@@ -46,11 +46,7 @@
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/AdminPromos" >Promos</a>
-								<ul class="nav">
-									<li><a href="/AdminPromos/add">Ajouter une promo</a></li>
-									<li><a href="/AdminPromos/">Gérer les promos</a></li>
-								</ul>
+								<a href="/AdminOrders" >Orders</a>
 							</li>
 							<li  class="subnav">
 								<a href="/adminbrands">Marques</a>
@@ -60,9 +56,11 @@
 								</ul>
 							</li>
 							<li  class="subnav">
-								<a href="/adminpictures">Pictures</a>
+								<a href="#">Autres</a>
 								<ul class="nav">
 									<li><a href="/adminpictures">Gérer les photos</a></li>
+									<li><a href="/AdminPromos/add">Ajouter une promo</a></li>
+									<li><a href="/AdminPromos/">Gérer les promos</a></li>
 								</ul>
 							</li>
 							<li>
@@ -72,6 +70,7 @@
 					</nav>
 				</div>
 			</header>
+			<div class="clearfix"></div>
 			<div id="content">
 				<?php echo $this->Session->flash(); ?>
 
