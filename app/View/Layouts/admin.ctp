@@ -47,6 +47,12 @@
 							</li>
 							<li class="subnav">
 								<a href="/AdminOrders" >Orders</a>
+								<ul class="nav">
+									<li><a href="/AdminOrders/index/0">Commandes en attentes</a></li>
+									<li><a href="/AdminOrders/index/1">Commandes en préparations</a></li>
+									<li><a href="/AdminOrders/index/2">Commandes en expédiées</a></li>
+									<li><a href="/AdminOrders/index/2">Commandes archivées</a></li>
+								</ul>
 							</li>
 							<li  class="subnav">
 								<a href="/adminbrands">Marques</a>
