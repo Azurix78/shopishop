@@ -38,22 +38,26 @@
 				<?php
 			}
 		}
-		if($this->Session->read('Auth.User'))
-		{
-			?>
-				<input type="email" id="order-address-email" style="display:none;" value="<?php echo AuthComponent::user('email'); ?>">
-			<?php
-		}
-		else
-		{
-			echo $this->Form->input('email', array('label' => 'email', 'id' => 'order-address-email', 'required' => 'required', 'type' => 'email'));
-		}
-		echo $this->Form->input('lastname', array('label' => 'Nom', 'id' => 'order-address-lastname', 'required' => 'required'));
-		echo $this->Form->input('firstname', array('label' => 'Prénom', 'id' => 'order-address-firstname', 'required' => 'required'));
-		echo $this->Form->input('address', array('label' => 'Adresse', 'type' => 'text', 'id' => 'order-address-address', 'required' => 'required'));
-		echo $this->Form->input('zipcode', array('label' => 'Code postal', 'id' => 'order-address-zipcode', 'required' => 'required'));
-		echo $this->Form->input('country', array('label' => 'Pays', 'id' => 'order-address-country', 'required' => 'required'));
 		?>
+			<div id="order-address-ctn">
+				<?php
+				if($this->Session->read('Auth.User'))
+				{
+					?>
+						<input type="email" id="order-address-email" style="display:none;" value="<?php echo AuthComponent::user('email'); ?>">
+					<?php
+				}
+				else
+				{
+					echo $this->Form->input('email', array('label' => 'email', 'id' => 'order-address-email', 'required' => 'required', 'type' => 'email'));
+				}
+				echo $this->Form->input('lastname', array('label' => 'Nom', 'id' => 'order-address-lastname', 'required' => 'required'));
+				echo $this->Form->input('firstname', array('label' => 'Prénom', 'id' => 'order-address-firstname', 'required' => 'required'));
+				echo $this->Form->input('address', array('label' => 'Adresse', 'type' => 'text', 'id' => 'order-address-address', 'required' => 'required'));
+				echo $this->Form->input('zipcode', array('label' => 'Code postal', 'id' => 'order-address-zipcode', 'required' => 'required'));
+				echo $this->Form->input('country', array('label' => 'Pays', 'id' => 'order-address-country', 'required' => 'required'));
+				?>
+			</div>
 		<div>
 			<button id="livraison-order-next" class="btn btn-blue">Suivant</button>
 		</div>
@@ -73,7 +77,10 @@
 				<?php echo $this->Form->input('cb-num', array('label' => 'Numéro de la carte', 'id' => 'order-cb-num', 'required' => 'required')); ?>
 				<?php echo $this->Form->input('cb-crypto', array('label' => 'Cryptogramme visuel', 'id' => 'order-cb-crypto', 'required' => 'required')); ?>
 			</div>
-			<?php echo $this->Form->input('code_promo', array('label' => 'Code Pormo', 'id' => 'order-paiement-promo', 'required' => 'required'));?>
+			<div class="order-code-promo">
+				<?php echo $this->Form->input('code_promo', array('label' => 'Code Pormo', 'id' => 'order-paiement-promo', 'required' => 'required'));?>
+				<button id="check-promo-code" class="btn btn-black">Vérifier</button>
+			</div>
 		<div>
 			<button id="paiement-order-next" class="btn btn-blue">Suivant</button>
 		</div>

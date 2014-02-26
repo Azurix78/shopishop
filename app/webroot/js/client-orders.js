@@ -85,39 +85,102 @@ $('#paiement-order-next').click(function(){
 			$('#order-cb-crypto').val().length != 0
 		)
 		{
-			$('#recap-order').css('display', 'block');
-			$('#livraison-order').css('display', 'none');
-			$('#paiement-order').css('display', 'none');
+			$.ajax({
+		        url : "/orders/promoCode/",
+		        dataType : 'JSON',
+		        type : 'POST',
+		        data : {
+		        	promo: $('#order-paiement-promo').val()
+		        	},
+		        success: function(response)
+		        {
+		            if(response)
+		            {
+						$('#recap-order').css('display', 'block');
+						$('#livraison-order').css('display', 'none');
+						$('#paiement-order').css('display', 'none');
 
-			$('#recap-ariane').removeClass('tunnel-current');
-			$('#recap-ariane').addClass('tunnel-pass');
+						$('#recap-ariane').removeClass('tunnel-current');
+						$('#recap-ariane').addClass('tunnel-pass');
 
-			$('#livraison-ariane').removeClass('tunnel-current');
-			$('#livraison-ariane').addClass('tunnel-pass');
+						$('#livraison-ariane').removeClass('tunnel-current');
+						$('#livraison-ariane').addClass('tunnel-pass');
 
-			$('#paiement-ariane').removeClass('tunnel-current');
-			$('#paiement-ariane').addClass('tunnel-pass');
+						$('#paiement-ariane').removeClass('tunnel-current');
+						$('#paiement-ariane').addClass('tunnel-pass');
 
-			$('#fin-ariane').addClass('tunnel-current');
+						$('#fin-ariane').addClass('tunnel-current');
+		            }
+		            else
+		            {
+		            	$('#order-paiement-promo').css('border', '1px solid red');
+		            	alert('Code promo invalide');
+		            }
+		        } 
+		    });
 		}
 	}
 	else if($( "input:checked" ).val() == "NO")
 	{
-		$('#recap-order').css('display', 'block');
-			$('#livraison-order').css('display', 'none');
-			$('#paiement-order').css('display', 'none');
+		$.ajax({
+	        url : "/orders/promoCode/",
+	        dataType : 'JSON',
+	        type : 'POST',
+	        data : {
+	        	promo: $('#order-paiement-promo').val()
+	        	},
+	        success: function(response)
+	        {
+	            if(response)
+	            {
+					$('#recap-order').css('display', 'block');
+					$('#livraison-order').css('display', 'none');
+					$('#paiement-order').css('display', 'none');
 
-			$('#recap-ariane').removeClass('tunnel-current');
-			$('#recap-ariane').addClass('tunnel-pass');
+					$('#recap-ariane').removeClass('tunnel-current');
+					$('#recap-ariane').addClass('tunnel-pass');
 
-			$('#livraison-ariane').removeClass('tunnel-current');
-			$('#livraison-ariane').addClass('tunnel-pass');
+					$('#livraison-ariane').removeClass('tunnel-current');
+					$('#livraison-ariane').addClass('tunnel-pass');
 
-			$('#paiement-ariane').removeClass('tunnel-current');
-			$('#paiement-ariane').addClass('tunnel-pass');
+					$('#paiement-ariane').removeClass('tunnel-current');
+					$('#paiement-ariane').addClass('tunnel-pass');
 
-			$('#fin-ariane').addClass('tunnel-current');
+					$('#fin-ariane').addClass('tunnel-current');
+	            }
+	            else
+	            {
+	            	$('#order-paiement-promo').css('border', '1px solid red');
+	            	alert('Code promo invalide');
+	            }
+	        } 
+	    });
+		
 	}
+});
+
+$( "#check-promo-code" ).on( "click", function() {
+	$.ajax({
+        url : "/orders/promoCode/",
+        dataType : 'JSON',
+        type : 'POST',
+        data : {
+        	promo: $('#order-paiement-promo').val()
+        	},
+        success: function(response)
+        {
+            if(response)
+            {
+				$('#order-paiement-promo').css('border', '1px solid green');
+				alert('Code promo valide');
+            }
+            else
+            {
+            	$('#order-paiement-promo').css('border', '1px solid red');
+            	alert('Code promo invalide');
+            }
+        } 
+    });
 });
 
 

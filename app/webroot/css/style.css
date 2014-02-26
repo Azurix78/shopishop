@@ -352,7 +352,9 @@ footer .column > a{
    margin: 10px auto;
    border: 1px #c567c5 solid;
    padding: 5px;
+   color: #fcfcfc;
    background-color: #e6a1e9;
+   text-shadow: 1px 1px rgba(0,0,0,0.5);
 }
 
 .address-item .address-text
@@ -470,7 +472,7 @@ footer .column > a{
 
 .order-item{
    width: 948px;
-   margin: 20px 0;
+   margin: 10px 0;
    padding: 0;
    height: 80px;
    line-height: 80px;
@@ -586,6 +588,32 @@ footer .column > a{
 
 #CB{
    display: none;
+   text-align: center;
+}
+
+.order-code-promo{
+   display: block;
+   width: 50%;
+   margin: 20px auto;
+   text-align: center;
+   line-height: 35px;
+   background-color: #dc92df;
+   border-radius: 5px;
+   padding: 10px 0;
+   text-shadow: 1px 1px rgba(0,0,0,0.5);
+   color: #fcfcfc;
+}
+
+#order-address-ctn
+{
+   display: block;
+   width: 50%;
+   margin: 20px auto;
+   text-align: center;
+   line-height: 35px;
+   background-color: #DAD6DA;
+   border-radius: 5px;
+   padding: 10px 0;
 }
 
 /* FIN RUBIO */
