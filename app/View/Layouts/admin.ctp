@@ -46,7 +46,13 @@
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/Adminorders" class="<?php if($this->params['controller'] == 'Adminorders') echo 'active'; ?>">Orders</a>
+								<a href="/AdminOrders" class="<?php if($this->params['controller'] == 'Adminorders') echo 'active'; ?>">Orders</a>
+								<ul class="nav">
+									<li><a href="/AdminOrders/index/0">Commandes en attentes</a></li>
+									<li><a href="/AdminOrders/index/1">Commandes en préparations</a></li>
+									<li><a href="/AdminOrders/index/2">Commandes en expédiées</a></li>
+									<li><a href="/AdminOrders/index/2">Commandes archivées</a></li>
+								</ul>
 							</li>
 							<li  class="subnav">
 								<a href="/Adminbrands" class="<?php if($this->params['controller'] == 'Adminbrands') echo 'active'; ?>">Marques</a>

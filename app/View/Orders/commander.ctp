@@ -94,6 +94,7 @@
 				--><div id="title-order-article-priceUnitaire">Prix unitaire</div><!--
 				--><div id="title-order-article-priceTTC">Montant TTC</div>
 			</div>
+			<div id="ctn-order-item">
 			<?php foreach ($cart['produits'] as $key => $purchase)
 			{
 				?>
@@ -108,6 +109,7 @@
 				<?php
 			}
 			?>
+			</div>
 			<div class="title order-total">Total de votre commande : <b><?php echo $total; ?> € TTC</b></div>
 		</div>
 		<div>

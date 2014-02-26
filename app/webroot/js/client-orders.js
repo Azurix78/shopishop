@@ -232,3 +232,4 @@ $("#recap-ariane").on("click", function(){
 	window.location = '/orders/cart';
 });
 
+
