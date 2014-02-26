@@ -244,7 +244,8 @@ class OrdersController extends AppController
 		}
 	}
 
-	public function changeCart($key){
+	public function changeCart($key)
+	{
 		$this->autoRender = false;
 		$quantity = $this->request->data['quantity'];
 
@@ -265,5 +266,45 @@ class OrdersController extends AppController
 			}
 		}
 		echo false;
+	}
+
+	public function orderToPDF($id)
+	{
+		$order = $this->Order->findById($id);
+		$this->set(array('id' => $id, 'order' => $order));
+		$this->layout = '/pdf/default';
+		$this->render('/pdf/pdf_order_view');
+//		$this->show_pdf($id);
+//		$this->download_pdf($id);
+	}
+
+	public function show_pdf($id)
+	{
+	    $this->viewClass = 'Media';
+
+	    $params = array(
+	        'id' => 'order' . $id . 'pdf',
+	        'name' => 'order' . $id,
+	        'download' => false,
+	        'extension' => 'pdf',
+	        'path' => APP . 'webroot' . DS . 'files' . DS . 'pdf' . DS
+	    );
+
+	    $this->set($params);
+	}
+
+	public function download_pdf($id)
+	{
+	    $this->viewClass = 'Media';
+
+	    $params = array(
+	        'id' => 'order' . $id . 'pdf',
+	        'name' => 'order' . $id,
+	        'download' => true,
+	        'extension' => 'pdf',
+	        'path' => APP . 'webroot' . DS . 'files' . DS . 'pdf' . DS
+	    );
+
+	    $this->set($params);
 	}
 }

@@ -48,7 +48,7 @@
 								<td><?php echo $order['Order']['id']; ?></td>
 								<td><?php echo $order['Order']['price']; ?> €</td>
 								<td><?php echo $order['Order']['status']; ?></td>
-								<td>lol</td>
+								<td><?php echo $this->Html->Image('rsc/pdf-icon.jpg', array('alt' => 'PDF icon', 'url' => '/orders/ordertopdf/' . $order['Order']['id'])) ?></td>
 								<td><a href="/orders/detail/<?php echo $order['Order']['id']; ?>">Détail</a></td>
 							</tr>
 						<?php
