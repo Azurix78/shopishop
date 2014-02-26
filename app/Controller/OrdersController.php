@@ -96,6 +96,14 @@ class OrdersController extends AppController
 			$this->Purchase->save($purchases, true);
 		}
 
+		if($this->order_email($data['email'], $data['token']))
+		{
+
+		}
+		else{
+			$this->Session->setFlash('Erreur lors de l\'envoi de l\'email');
+		}
+
 		$this->Session->delete('cart');
 
 		$this->Session->setFlash('Commande effectuée');

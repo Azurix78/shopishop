@@ -125,6 +125,21 @@ class AppController extends Controller
         );
     }
 
+    protected function order_email($user_email, $token)
+    {
+        App::uses('CakeEmail', 'Network/Email');
+        $Email = new CakeEmail();
+        $Email->from(array('42shop@robot.com' => '42 Shop - Commande effectuée'));
+        $Email->to($user_email);
+        $Email->emailFormat('html');
+        $Email->subject('Commande effectuée');
+        return $Email->send(
+            'Merci d\'avoir commandé sur 42 shop
+            <BR>Pour suivre votre commande cliquez sur ce lien :
+            <BR>http://localhost:8888/orders/follow/'. $token
+        );
+    }
+
     protected function random_char($lenght = 8)
     {
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
