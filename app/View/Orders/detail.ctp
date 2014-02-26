@@ -43,7 +43,7 @@
 				<?php
 			}
 			?>
-			<div class="title order-total">Total de votre commande : <b><?php echo $total; ?> € TTC</b></div>
+			<div class="title order-total">Total de votre commande : <b><?php echo $order['Order']['price']; ?> € TTC</b></div>
 		</div>
 	</div>
 </div>
