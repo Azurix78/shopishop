@@ -271,7 +271,10 @@ class OrdersController extends AppController
 	public function orderToPDF($id)
 	{
 		$order = $this->Order->findById($id);
-		$this->set(array('id' => $id, 'order' => $order));
+		$purchases = $this->Purchase->find('all', array(
+			'conditions' => array('Purchase.order_id' => $id)
+		));
+		$this->set(array('id' => $id, 'order' => $order, 'purchases' => $purchases));
 		$this->layout = '/pdf/default';
 		$this->render('/pdf/pdf_order_view');
 //		$this->show_pdf($id);
