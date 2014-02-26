@@ -22,7 +22,7 @@
 				<td>
 					<input type="number" class="small-input produitQuantity" value="<?php echo $produit['Article']['quantity']; ?>" data-key="<?php echo $key; ?>">
 				</td>
-				<td><b><?php echo $produit['Article']['quantity'] * $produit['Product']['price']; ?> €</b></td>
+				<td class="tot"><?php echo $produit['Article']['quantity'] * $produit['Product']['price']; ?> €</td>
 			</tr>
 		<?php }
 			} else { ?>

@@ -23,44 +23,44 @@
 					</div>
 					<nav>
 						<ul>
-							<li><a href="/Admin" class="active">Home</a></li>
+							<li><a href="/Admin" class="<?php if($this->params['controller'] == 'Admin') echo 'active'; ?>">Home</a></li>
 							<li class="subnav">
-								<a href="/adminusers" >Users</a>
+								<a href="/Adminusers" class="<?php if($this->params['controller'] == 'Adminusers') echo 'active'; ?>">Users</a>
 								<ul class="nav">
 									<li><a href="/adminusers/add">Ajouter un utilisateur</a></li>
 									<li><a href="/adminusers">Gérer les utilisateurs</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/Admincategories">Catégories</a>
+								<a href="/Admincategories" class="<?php if($this->params['controller'] == 'Admincategories') echo 'active'; ?>">Catégories</a>
 								<ul class="nav">
 									<li><a href="/Admincategories/add">Ajouter une catégorie</a></li>
 									<li><a href="/Admincategories">Gérer les catégories</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/AdminProducts" >Produits</a>
+								<a href="/Adminproducts" class="<?php if($this->params['controller'] == 'Adminproducts') echo 'active'; ?>">Produits</a>
 								<ul class="nav">
-									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
-									<li><a href="/AdminProducts">Gérer les produits</a></li>
+									<li><a href="/Adminproducts/add">Ajouter un produit</a></li>
+									<li><a href="/Adminproducts">Gérer les produits</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
-								<a href="/AdminOrders" >Orders</a>
+								<a href="/Adminorders" class="<?php if($this->params['controller'] == 'Adminorders') echo 'active'; ?>">Orders</a>
 							</li>
 							<li  class="subnav">
-								<a href="/adminbrands">Marques</a>
+								<a href="/Adminbrands" class="<?php if($this->params['controller'] == 'Adminbrands') echo 'active'; ?>">Marques</a>
 								<ul class="nav">
-									<li><a href="/adminbrands/add">Ajouter une marque</a></li>
-									<li><a href="/adminbrands">Gérer les marques</a></li>
+									<li><a href="/Adminbrands/add">Ajouter une marque</a></li>
+									<li><a href="/Adminbrands">Gérer les marques</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
-								<a href="#">Autres</a>
+								<a href="#" class="<?php if($this->params['controller'] == 'Adminpictures' || $this->params['controller'] == 'Adminpromos') echo 'active'; ?>">Autres</a>
 								<ul class="nav">
 									<li><a href="/adminpictures">Gérer les photos</a></li>
-									<li><a href="/AdminPromos/add">Ajouter une promo</a></li>
-									<li><a href="/AdminPromos/">Gérer les promos</a></li>
+									<li><a href="/Adminpromos/add">Ajouter une promo</a></li>
+									<li><a href="/Adminpromos/">Gérer les promos</a></li>
 								</ul>
 							</li>
 							<li>

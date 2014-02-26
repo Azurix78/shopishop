@@ -550,6 +550,7 @@ footer .column > a{
    display: inline-block;
    text-indent: 0px;
    height: 20px !important;
+   line-height: 20px;
 }
 
 .order-total{

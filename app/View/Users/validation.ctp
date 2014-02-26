@@ -1,4 +1,6 @@
-<h1>Validation</h1>
-<p>
-<?php echo $validation; ?>
-</p>
+<div class="div">
+	<div class="title">Validation</div>
+	<p>
+	<?php echo $validation; ?>
+	</p>
+</div>
