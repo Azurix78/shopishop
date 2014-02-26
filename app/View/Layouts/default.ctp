@@ -39,7 +39,7 @@
 						<?php
 					}
 					?>
-					<a id="quick-profil" href="/users/Profil">Mon profil</a>
+					<a id="quick-profil" href="/Users/edit">Mon profil</a>
 					<a id="quick-logout" href="/users/logout">Se deconnecter</a>
 					<?php
 				}

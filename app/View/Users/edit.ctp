@@ -62,9 +62,9 @@
 			<div class="title">Reset du password</div>
 			<?php
 				echo $this->Form->create('User', array('action' => '/password'));
-					echo $this->Form->input('old_password', array('label' => 'Ancien mot de passe', 'type' => 'password'));
-					echo $this->Form->input('password', array('label' => 'Mot de passe'));
-					echo $this->Form->input('password_verify', array('label' => 'Confirmer le mot de passe', 'type' => 'password'));
+					echo $this->Form->input('old_password', array('label' => 'Ancien mot de passe : ', 'type' => 'password'));
+					echo $this->Form->input('password', array('label' => 'Mot de passe : '));
+					echo $this->Form->input('password_verify', array('label' => 'Confirmer mot de passe : ', 'type' => 'password'));
 				echo $this->Form->end('Changer', true);
 			?>
 		</div>
@@ -74,7 +74,7 @@
 				echo $this->Html->link(
 				    "Désactiver mon compte",
 				    array('controller' => 'Users', 'action' => 'active'),
-				    array('class' => 'btn btn-red'),
+				    array('class' => 'btn btn-red','style'=> 'margin:10px'),
 				    "Êtes-vous sur de vouloir désactiver votre compte ?"
 				);
 			?>
