@@ -27,9 +27,7 @@
 						<td><?php echo $order['Order']['address'];?></td>
 						<td><?php echo $order['Order']['zipcode'];?></td>
 						<td><?php echo $order['Order']['country'];?></td>
-						<td>
-							<a href="#">Archive order</a>
-						</td>
+						<td></td>
 					</tr>
 				<?php
 				}

@@ -6,7 +6,7 @@ class OrdersController extends AppController
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow('addToCart', 'cart', 'changeCart', 'commander', 'addressOrder', 'buy', 'promoCode');
+		$this->Auth->allow('addToCart', 'cart', 'changeCart', 'commander', 'addressOrder', 'buy', 'promoCode', 'follow');
 	}
 
 	public function index()
@@ -23,6 +23,24 @@ class OrdersController extends AppController
 		$order = $this->Order->findById($id);
 		$purchases = $this->Purchase->find('all', array(
 			'conditions' => array('Purchase.order_id' => $id)
+		));
+
+		$total = 0;
+
+		foreach ($purchases as $key => $prix)
+		{
+			$total = $total + $prix['Purchase']['price'];
+		}
+
+		$total = number_format($total, 2);
+		$this->set(compact('order','purchases', 'total'));
+	}
+
+	public function follow($token=null)
+	{
+		$order = $this->Order->findByToken($token);
+		$purchases = $this->Purchase->find('all', array(
+			'conditions' => array('Purchase.order_id' => $order['Order']['id'])
 		));
 
 		$total = 0;
@@ -94,14 +112,21 @@ class OrdersController extends AppController
 			$purchases['price'] = $article['Product']['price'] * $article['Article']['quantity'];
 			$this->Purchase->create();
 			$this->Purchase->save($purchases, true);
+
+			$q_article = $this->Article->find('first', array(
+				'conditions' => array('Article.id' => $article['Article']['id'])
+			));
+
+			$this->Article->id = $q_article['Article']['id'];
+			$this->Article->saveField('quantity', $q_article['Article']['quantity'] - $purchases['quantity']);
 		}
 
-		if($this->order_email($data['email'], $data['token']))
+		if(!$this->Session->read('Auth.User'))
 		{
+			if($this->order_email($data['email'], $data['token']))
+			{
 
-		}
-		else{
-			$this->Session->setFlash('Erreur lors de l\'envoi de l\'email');
+			}
 		}
 
 		$this->Session->delete('cart');

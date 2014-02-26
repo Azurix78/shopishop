@@ -183,4 +183,52 @@ $( "#check-promo-code" ).on( "click", function() {
     });
 });
 
+$("#livraison-ariane").on("click", function(){
+	if($("#livraison-ariane").attr('class') == "tunnel tunnel-pass")
+	{
+		$('#recap-order').css('display', 'none');
+		$('#livraison-order').css('display', 'block');
+		$('#paiement-order').css('display', 'none');
+
+		$('#recap-ariane').removeClass('tunnel-current');
+		$('#recap-ariane').removeClass('tunnel-pass');
+		$('#recap-ariane').addClass('tunnel-pass');
+
+		$('#livraison-ariane').removeClass('tunnel-current');
+		$('#livraison-ariane').removeClass('tunnel-pass');
+		$('#livraison-ariane').addClass('tunnel-current');
+
+		$('#paiement-ariane').removeClass('tunnel-current');
+		$('#paiement-ariane').removeClass('tunnel-pass');
+
+		$('#fin-ariane').removeClass('tunnel-current');
+	}	
+});
+
+$("#paiement-ariane").on("click", function(){
+	if($("#paiement-ariane").attr('class') == "tunnel tunnel-pass")
+	{
+		$('#recap-order').css('display', 'none');
+		$('#livraison-order').css('display', 'none');
+		$('#paiement-order').css('display', 'block');
+
+		$('#recap-ariane').removeClass('tunnel-current');
+		$('#recap-ariane').removeClass('tunnel-pass');
+		$('#recap-ariane').addClass('tunnel-pass');
+
+		$('#livraison-ariane').removeClass('tunnel-current');
+		$('#livraison-ariane').removeClass('tunnel-pass');
+		$('#livraison-ariane').addClass('tunnel-pass');
+
+		$('#paiement-ariane').removeClass('tunnel-current');
+		$('#paiement-ariane').removeClass('tunnel-pass');
+		$('#paiement-ariane').addClass('tunnel-current');
+
+		$('#fin-ariane').removeClass('tunnel-current');
+	}	
+});
+
+$("#recap-ariane").on("click", function(){
+	window.location = '/orders/cart';
+});
 
