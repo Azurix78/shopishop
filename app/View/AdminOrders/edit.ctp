@@ -1,12 +1,10 @@
 <div class="container">
 	<div class="div">
-		<div class="title">Modifier la catégorie</div>
-		<?php
-			echo $this->Form->create('AdminCategories', array('type' => 'file'));
-			echo $this->Form->input('name', array('label' => 'Nom', 'value' => $category['Category']['name']));
-			echo $this->Form->input('menu_color', array('label' => 'Couleur', 'value' => $category['Category']['menu_color']));
-			echo $this->Form->input('image_file', array('label' => 'Image :', 'type' => 'file')); ?>
-			<?php echo $this->Form->end('Enregistrer');
+		<div class="title">Commande n°<?php echo $id; ?></div>
+		<?php 
+			echo $this->Form->create('Order');
+			echo $this->Form->input('status', array('options' => array(0 => 'En attente', 1 => 'Expédié', 2 => 'Livré', 3 => 'Archivé')));
+			echo $this->Form->end('Enregistrer');
 		?>
 	</div>
 </div>

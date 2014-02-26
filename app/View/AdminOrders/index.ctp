@@ -27,7 +27,9 @@
 						<td><?php echo $order['Order']['address'];?></td>
 						<td><?php echo $order['Order']['zipcode'];?></td>
 						<td><?php echo $order['Order']['country'];?></td>
-						<td></td>
+						<td>
+							<?php echo $this->Html->link('Edit order', array('controller' => 'adminorders', 'action' => 'edit', $order['Order']['id'])); ?>
+						</td>
 					</tr>
 				<?php
 				}

@@ -19,7 +19,7 @@ class AdminOrdersController extends AppController
 	{
 		// Si le statut est présent et correct.
 		if ($status !== null && in_array($status, array(0, 1, 2))) {
-			$orders = $this->Order->find('all', array('conditions' => array('status' => $status)));
+			$orders = $this->Order->findAllByStatus($status);
 			return $this->set(array('orders' => $orders));
 		}
 		// Si le statut est présent mais incorrect.
@@ -31,6 +31,26 @@ class AdminOrdersController extends AppController
 		else {
 			return $this->set(array('orders' => $this->Order->find('all')));
 		}
+	}
+
+	public function edit($id)
+	{
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$d = $this->request->data;
+			$d['Order']['id'] = $id;
+			if ($this->Order->save($d, true, array('status'))) {
+				$this->Session->setFlash('La modification de la commande a bien été effectuée');
+				return $this->redirect(array('controller' => 'adminorders', 'action' => 'edit', $id));
+			} else {
+				$this->Session->setFlash('La modification de la commande n\'a pas pu être effectuée');
+				return $this->redirect(array('controller' => 'adminorders', 'action' => 'edit', $id));
+			}
+		}
+		$order = $this->Order->findById($id);
+		if (!$this->request->data) {
+			$this->request->data = $order;
+		}
+		return $this->set(array('id' => $id, 'order' => $order));
 	}
 
 	public function q($id)

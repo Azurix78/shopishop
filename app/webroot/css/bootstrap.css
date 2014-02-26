@@ -1314,7 +1314,9 @@ select{
   width: 450px;
 }
 
+#UserBirthdayDay,
 #UserBirthdayMonth,
-#UserBirthdayYear,{
-  margin-left: 150px;
+#UserBirthdayYear{
+  width: 86px;
+  display: inline-block;
 }
