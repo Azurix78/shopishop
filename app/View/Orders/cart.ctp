@@ -37,7 +37,7 @@
 	<p>
 		<span class="pull-right">Total de votre commande : <b><?php echo $quantity; ?> €</b></span>
 		<?php if($quantity > 0){ ?>
-			<span class="pull-left"><a href="/commande/valid" class="btn label-warning">Poursuivre la commande</a></span>
+			<span class="pull-left"><a href="/orders/commander" class="btn label-warning">Poursuivre la commande</a></span>
 		<?php } ?>
 	</p>
 </div>

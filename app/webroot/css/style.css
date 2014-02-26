@@ -470,7 +470,7 @@ footer .column > a{
 
 .order-item{
    width: 948px;
-   margin: 0;
+   margin: 20px 0;
    padding: 0;
    height: 80px;
    line-height: 80px;
@@ -481,6 +481,8 @@ footer .column > a{
 .order-item > div{
    display: inline-block;
    height: 100%;
+   vertical-align: top;
+   text-indent: 10px;
 }
 
 .order-article-logo{
@@ -488,10 +490,15 @@ footer .column > a{
    height: 80px;
    line-height: 80px;
    vertical-align: top;
+   text-indent: 0px !important;
+   padding: 0;
+   margin: 0;
 }
 
 .order-article-logo img{
    width: 80px;
+   padding: 0;
+   margin: 0;
 }
 
 .order-article-name{
@@ -499,8 +506,86 @@ footer .column > a{
    height: 100%;
 }
 
+.order-article-name span{
+   font-weight: bold;
+}
+
 .quick-cart-total{
    color: #dc92df;
+}
+
+.ctn-order-info{
+   display: block;
+   background-color: #fcfcfc;
+   line-height: 30px;
+   height: 90px;
+   margin: 10px 0;
+}
+
+.ctn-order-info .line{
+   display: block;
+   margin-left: 10px;
+   height: 30px;
+}
+
+.ctn-order-info .status-order
+{
+   display: inline-block;
+   text-indent: 0px;
+   height: 20px !important;
+}
+
+.order-total{
+   text-indent: 580px !important;
+}
+
+.tunnel-current
+{
+   background-color: white;
+   color: black;
+   z-index: 2;
+}
+
+.tunnel-pass{
+   background-color: #e779e7;
+   color: #fcfcfc;
+   z-index: 3;
+   cursor: pointer;
+}
+
+.tunnel{
+   display: inline-block;
+   width: 25%;
+   text-align: center;
+   position: relative;
+}
+
+.tunnel-pass:after {
+   left: 100%;
+   top: 50%;
+   border: solid transparent;
+   content: " ";
+   height: 0;
+   width: 0;
+   position: absolute;
+   pointer-events: none;
+   border-color: rgba(231, 121, 231, 0);
+   border-left-color: #e779e7;
+   border-width: 20px;
+   margin-top: -20px;
+}
+
+.paiement-item{
+   height: 40px;
+   width: 49%;
+   display: inline-block;
+   text-align: center;
+   margin: 10px 0;
+   line-height: 40px;
+}
+
+#CB{
+   display: none;
 }
 
 /* FIN RUBIO */

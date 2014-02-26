@@ -1,12 +1,12 @@
 <?php
 class OrdersController extends AppController
 {
-	public $uses = array('Order','Article');
+	public $uses = array('Order','Article','Purchase','Address');
 
 	function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow('addToCart', 'cart', 'changeCart');
+		$this->Auth->allow('addToCart', 'cart', 'changeCart', 'commander', 'addressOrder', 'buy');
 	}
 
 	public function index()
@@ -21,7 +21,99 @@ class OrdersController extends AppController
 	public function detail($id=null)
 	{
 		$order = $this->Order->findById($id);
-		$this->set(compact('order'));
+		$purchases = $this->Purchase->find('all', array(
+			'conditions' => array('Purchase.order_id' => $id)
+		));
+
+		$total = 0;
+
+		foreach ($purchases as $key => $prix)
+		{
+			$total = $total + $prix['Purchase']['price'];
+		}
+
+		$total = number_format($total, 2);
+		$this->set(compact('order','purchases', 'total'));
+	}
+
+	public function buy()
+	{
+		$cart = $this->Session->read('cart');
+
+		// id	int(11)			Non	Aucune	AUTO_INCREMENT	 Modifier	 Supprimer	 Affiche les valeurs distinctes	Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 2	email	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 3	firstname	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 4	lastname	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 5	status	int(11)			Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 6	address	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 7	price	decimal(18,2)			Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 8	zipcode	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 9	country	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 10	gift_wrap	int(11)			Non	0		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 11	promo_code	varchar(255)	utf8_general_ci		Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 12	total_weight	int(11)			Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 13	created	datetime			Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 14	udpated	datetime			Non	Aucune		 Modifier	 Supprimer	 Affiche les valeurs distinctes	 Primaire	 Unique	 Index	Spatial	Texte entier
+	 // 15	token	varchar(255)	u
+
+		$data = array();
+
+		$total = 0;
+		$poids = 0;
+
+		foreach ($cart['produits'] as $key => $price)
+		{
+			$total = $total + ($price['Article']['quantity'] * $price['Product']['price']);
+		}
+
+		if($user = $this->Auth->user())
+		{
+			$data['email'] = $user['email'];
+			$data['token'] = null;
+		}
+		else{
+			$data['email'] = $cart['address']['email'];
+			$data['token'] = $this->random_char(20);
+		}
+			$data['firstname'] = $cart['address']['firstname'];
+			$data['lastname'] = $cart['address']['lastname'];
+			$data['address'] = $cart['address']['address'];
+			$data['country'] = $cart['address']['country'];
+			$data['zipcode'] = $cart['address']['zipcode'];
+
+			$data['price'] = $total;
+			$data['promo_code'] = '';
+
+			$data['total_weight'] = 
+			$data['gift_wrap'] = 0;
+			$data['status'] = 0;
+
+		// $this->Order->create();
+		// $this->Order->save
+	}
+
+	public function commander()
+	{
+		$cart = $this->Session->read('cart');
+		$total = 0;
+
+		foreach ($cart['produits'] as $key => $price)
+		{
+			$total = $total + ($price['Article']['quantity'] * $price['Product']['price']);
+		}
+
+		if($user_id = $this->Auth->user('id'))
+		{
+			$addresses = $this->Address->find('all', array(
+				'conditions' => array('Address.user_id' => $user_id)
+			));
+		}
+		else
+		{
+			$addresses = false;
+		}
+
+		$this->set(compact('cart', 'total', 'addresses'));
 	}
 
 	public function addToCart($id)
@@ -64,6 +156,22 @@ class OrdersController extends AppController
 	public function cart()
 	{
 		//
+	}
+
+	public function addressOrder()
+	{
+		$this->autoRender = false;
+		$address = $this->request->data;
+
+		$cart = $this->Session->read('cart');
+		if(CakeSession::write('cart.address', $address))
+		{
+			echo true;
+		}
+		else
+		{
+			echo false;
+		}
 	}
 
 	public function changeCart($key){
