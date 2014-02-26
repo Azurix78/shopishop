@@ -28,42 +28,39 @@ class AdminCategoriesController extends AppController
 		if ($this->request->is('post')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
 			$d = $this->request->data;
-			if ($this->Category->save($d)) {
-				$this->Session->setFlash('L\'entrée a bien été ajoutée');
-				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
-			} else
-				$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
-		}
-		$pictures = $this->Picture->find('all', array(
-				'fields' => array('picture', 'id'),
-			));
-		$select_pictures = array();
-		foreach ($pictures as $key => $picture)
-		{
-			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
-		}
-		$this->set('select_pictures', $select_pictures);
+			if($this->upload($this->request->data['AdminCategories']['image_file']) || isset($this->request->data['img']))
+            {
+            	$this->request->data['AdminCategories']['picture_id'] = (int) $this->Picture->getInsertID();
+                if(!empty($d['img'])) $this->request->data['AdminCategories']['picture_id'] = $this->request->data['img'];
+
+                $tab = array();
+                $tab['Category'] = $this->request->data['AdminCategories'];
+				if ($this->Category->save($tab)) {
+					$this->Session->setFlash('L\'entrée a bien été ajoutée');
+					return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
+				} else
+					$this->Session->setFlash('Une erreur s\'est produite lors de l\'ajout de l\'entrée');
+				}
+			}
+		$this->set('pictures', $this->Picture->find('all', array('conditions' => array('Picture.status' => 0))));
 
 	}
 
 	public function edit($id)
 	{
-		//select Picture
-		$pictures = $this->Picture->find('all', array(
-			'fields' => array('picture', 'id'),
-		));
-		$select_pictures = array();
-		foreach ($pictures as $key => $picture)
-		{
-			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
-		}
 
 		$result = $this->Category->findById($id);
 		if ($this->request->is('post') || $this->request->is('put')) {
 //			$this->autoRender = false; // ----> En cas d'utilisation d'AJAX, modifier le retour de la fonction en conséquence.
-			$d = $this->request->data;
-			$d['Category']['id'] = $id;
-			if ($this->Category->save($d, true, array('name', 'menu_color', 'picture_id'))) {
+			$this->Category->id = $id;
+			if(isset($this->request->data['AdminCategories']['image_file']) && $this->upload($this->request->data['AdminCategories']['image_file']))
+            {
+                $this->request->data['AdminCategories']['picture_id'] = (int) $this->Picture->getInsertID();
+            }
+            if(isset($this->request->data['img'])) $this->request->data['AdminCategories']['picture_id'] = $this->request->data['img'];
+            $tab = array();
+            $tab['Category'] = $this->request->data['AdminCategories'];
+			if ($this->Category->save($tab)) {
 				$this->Session->setFlash('Les informations ont bien été modifiées');
 				return $this->redirect(array('controller' => 'admincategories', 'action' => 'index'));
 			} else
@@ -71,6 +68,6 @@ class AdminCategoriesController extends AppController
 		}
 		$this->data = $result;
 		$this->set('category', $result);
-		$this->set('select_pictures', $select_pictures);
+		$this->set('pictures', $this->Picture->find('all', array('conditions' => array('Picture.status' => 0))));
 	}
 }

@@ -6,10 +6,20 @@
 				if($products):
 					?>
 					<table>
-					<tr><th>Nom</th><th>Catégorie</th><th>Marque</th><th>Promotion</th><th>Statut</th><th>Modification</th><th></th></tr>
+					<tr>
+						<th class="apercu">Images</th>
+						<th>Nom</th>
+						<th>Catégorie</th>
+						<th>Marque</th>
+						<th>Promotion</th>
+						<th>Statut</th>
+						<th>Modification</th>
+						<th>Actions</th>
+					</tr>
 					<?php
 						foreach($products as $product):
 							echo '<tr>';
+							echo '<td class="apercu"><img src="/img/files/'. $product['Picture']['picture'] .'"></td>';
 							echo '<td>'. $product['Product']['name'] .'</td>';
 							echo '<td>'. $product['Category']['name'] .'</td>';
 							echo '<td>'. $product['Brand']['name'] .'</td>';

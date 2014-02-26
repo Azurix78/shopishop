@@ -25,8 +25,8 @@
 		}
 		?>
 	</div>
-	<div id="ban-pub">
-	</div>
+	<a href="/products"><div id="ban-pub">
+	</div></a>
 	<div id="ban-info" class="div">
 		<div id="livraison-free">
 			<div class="left">

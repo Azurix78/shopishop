@@ -6,7 +6,7 @@
 			<th>Code</th>
 			<th>Réduction</th>
 			<th>Date limite</th>
-			<th></th>
+			<th>Actions</th>
 
 		<?php
 		foreach ($promos as $key => $promo)
@@ -15,7 +15,7 @@
 			'</td><td>' . $promo['Promo']['code'] . 
 			'</td><td>' . $promo['Promo']['reduction'] . 
 			'</td><td>' . $promo['Promo']['limit_date']['formatted'] . 
-			'</td><td><a href="/AdminPromos/edit/' . $promo['Promo']['id'] .'">Modifier</a></td></tr>';
+			'</td><td><a class="btn btn-blue"  href="/AdminPromos/edit/' . $promo['Promo']['id'] .'">Modifier</a></td></tr>';
 		}
 		?>
 		</table>

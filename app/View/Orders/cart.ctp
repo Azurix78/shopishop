@@ -27,7 +27,7 @@
 		<?php }
 			} else { ?>
 				<tr>
-					<td colspan="5" style="text-align:center">Votre panier est vide</td>
+					<td colspan="7" style="text-align:center">Votre panier est vide</td>
 				</tr>
 			<?php } ?>
 		

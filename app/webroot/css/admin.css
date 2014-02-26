@@ -1356,11 +1356,13 @@ header nav li a.active{
   display: block;
 }
 
+
 table{
   width: 90%;
   margin: 10px auto;
   border-radius: 5px 5px 10px 10px;
   overflow: hidden;
+  background-color: #fcfcfc;
 }
 
 th{
@@ -1379,7 +1381,7 @@ th{
 }
 
 td{
-  border-bottom: 1px solid #2b2b2b;
+  border: 1px solid #cacaca;
   padding: 5px;
   vertical-align: middle;
   text-align: center;
@@ -1387,6 +1389,11 @@ td{
 
 tr:last-child{
   border-bottom: 6px solid #2b2b2b;
+}
+
+table tr:nth-child(2n+1)
+{
+    background-color: rgba(0,0,0,0.05);
 }
 
 select{
@@ -1414,4 +1421,17 @@ select{
 #PromoLimitDateMonth,
 #PromoLimitDateYear{
   margin-left: 150px;
+}
+
+.apercu, .apercu img{
+  width: 50px;
+}
+
+input[type=submit]
+{
+  margin: 10px;
+}
+
+.actions .btn{
+  margin: 0 2px;
 }

@@ -72,8 +72,8 @@
 							</span>
 						</a>
 						<div id="header_search">
-							<form class="search">
-								<input type="text" placeholder="search" />
+							<form class="search" action="/products/search" method="POST">
+								<input type="text" name="q" placeholder="search" />
 								<input type="submit" value="" />
 							</form>
 						</div>

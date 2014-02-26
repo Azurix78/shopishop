@@ -1,7 +1,7 @@
 <?php
 class ArticlesController extends AppController
 {
-	public $uses = array('Article', 'Product');
+	public $uses = array('Article', 'Product', 'Picture');
 
 	function beforeFilter()
 	{
@@ -28,16 +28,23 @@ class ArticlesController extends AppController
 		$data['Article']['reference'] = strtoupper(preg_replace('/\s+/', '', $data['Article']['name']));
 
 		$this->Article->create;
-		if($this->Article->save($data, true))
-		{
-			$this->Session->setFlash('Article ajouté');
-            return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
+		if($this->upload($this->request->data['Articles']['image_file']) || isset($this->request->data['img']))
+        {
+        	$data['Article']['picture_id'] = (int) $this->Picture->getInsertID();
+            if(!empty($this->request->data['img'])) $data['Article']['picture_id'] = $this->request->data['img'];
+
+			if($this->Article->save($data, true))
+			{
+				$this->Session->setFlash('Article ajouté');
+	            return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
+			}
+			else
+			{
+				$this->Session->setFlash('Informations invalides');
+	            return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
+			}
 		}
-		else
-		{
-			$this->Session->setFlash('Informations invalides');
-            return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
-		}
+		return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'.$id));
 	}
 
 	public function active($id=null)

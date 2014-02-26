@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="div">
 		<div class="title">Liste des utilisateurs</div>
-		<h1>Utilisateurs actifs</h1>
+		<h2>Utilisateurs actifs</h2>
 		<table>
 			<tr>
 				<th>Nom</th>
@@ -11,7 +11,7 @@
 				<th>Dernière IP</th>
 				<th>Rôle</th>
 				<th>Mis à jour le</th>
-				<th><th>
+				<th>Actions<th>
 			</tr>
 			<?php
 			if($users_active)
@@ -27,7 +27,7 @@
 						<td><?php echo $user['User']['last_ip'];?></td>
 						<td><?php echo $user['Role']['name'];?></td>
 						<td><?php echo $user['User']['updated'];?></td>
-						<td>
+						<td class='actions'>
 							<?php
 								echo $this->Html->link(
 								    'Désactiver',
@@ -54,7 +54,7 @@
 			}
 			?>
 		</table>
-		<h1>Utilisateurs inactifs</h1>
+		<h2>Utilisateurs inactifs</h2>
 		<table>
 			<tr>
 				<th>Nom</th>
@@ -64,7 +64,7 @@
 				<th>Dernière IP</th>
 				<th>Role</th>
 				<th>Mis à jour le</th>
-				<th><th>
+				<th>Actions<th>
 			</tr>
 			<?php
 			if($users_inactive)

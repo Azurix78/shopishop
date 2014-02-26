@@ -25,9 +25,10 @@ class AdminbrandsController extends AppController
 		if ($this->request->is('post')) {
 
             $this->Brand->create();
-            if($this->upload($this->request->data['AdminBrands']['image_file']))
+            if($this->upload($this->request->data['AdminBrands']['image_file']) || isset($this->request->data['img']))
             {
             	$this->request->data['AdminBrands']['picture_id'] = (int) $this->Picture->getInsertID();
+                if(isset($this->request->data['img'])) $this->request->data['AdminBrands']['picture_id'] = $this->request->data['img'];
                 if($this->Brand->save($this->request->data['AdminBrands']))
                 {
                     $this->Session->setFlash('Marque ajouté');
@@ -35,6 +36,7 @@ class AdminbrandsController extends AppController
                 }
             }
         }
+        $this->set('pictures', $this->Picture->find('all', array('conditions' => array('Picture.status' => 0))));
 	}
 
     public function edit($id)
@@ -55,6 +57,7 @@ class AdminbrandsController extends AppController
                 $this->request->data['AdminBrands']['picture_id'] = (int) $this->Picture->getInsertID();
             }
 
+            if(isset($this->request->data['img'])) $this->request->data['AdminBrands']['picture_id'] = $this->request->data['img'];
             if ($this->Brand->save($this->request->data['AdminBrands'])) {
                 $this->Session->setFlash(__('Marque modifiée'));
                 return $this->redirect(array('action' => 'index'));
@@ -68,6 +71,7 @@ class AdminbrandsController extends AppController
         }
 
         $this->set('brand', $brand);
+        $this->set('pictures', $this->Picture->find('all', array('conditions' => array('Picture.status' => 0))));
     }
 
     public function delete($id)

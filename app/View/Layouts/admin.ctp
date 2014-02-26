@@ -19,7 +19,7 @@
 			<header>
 				<div class="container">
 					<div class="logo">
-						<img src="/img/logo.png" alt="Logo 42Shop">
+						<a href="/Admin"><img src="/img/logo.png" alt="Logo 42Shop"></a>
 					</div>
 					<nav>
 						<ul>
@@ -28,43 +28,45 @@
 								<a href="/adminusers" >Users</a>
 								<ul class="nav">
 									<li><a href="/adminusers/add">Ajouter un utilisateur</a></li>
-									<li><a href="/adminusers">Modifier une utilisateur</a></li>
+									<li><a href="/adminusers">Gérer les utilisateurs</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
 								<a href="/Admincategories">Catégories</a>
 								<ul class="nav">
-									<li><a href="/Admincategories">Afficher les catéfories</a></li>
 									<li><a href="/Admincategories/add">Ajouter une catégorie</a></li>
+									<li><a href="/Admincategories">Gérer les catégories</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
 								<a href="/AdminProducts" >Produits</a>
 								<ul class="nav">
-									<li><a href="/AdminProducts/">Afficher les produits</a></li>
 									<li><a href="/AdminProducts/add">Ajouter un produit</a></li>
-									<li><a href="/AdminProducts">Modifier un produit</a></li>
+									<li><a href="/AdminProducts">Gérer les produits</a></li>
 								</ul>
 							</li>
 							<li class="subnav">
 								<a href="/AdminPromos" >Promos</a>
 								<ul class="nav">
-									<li><a href="/AdminPromos/">Afficher les promos</a></li>
 									<li><a href="/AdminPromos/add">Ajouter une promo</a></li>
+									<li><a href="/AdminPromos/">Gérer les promos</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
 								<a href="/adminbrands">Marques</a>
 								<ul class="nav">
 									<li><a href="/adminbrands/add">Ajouter une marque</a></li>
-									<li><a href="/adminbrands">Modifier une marque</a></li>
+									<li><a href="/adminbrands">Gérer les marques</a></li>
 								</ul>
 							</li>
 							<li  class="subnav">
 								<a href="/adminpictures">Pictures</a>
 								<ul class="nav">
-									<li><a href="/adminpictures">Modifier une photo</a></li>
+									<li><a href="/adminpictures">Gérer les photos</a></li>
 								</ul>
+							</li>
+							<li>
+								<a href="/">Retour</a>
 							</li>
 						</ul>
 					</nav>

@@ -34,15 +34,7 @@ class AdminProductsController extends AppController
 			$select_categories[$category['Category']['id']] = $category['Category']['name'];
 		}
 
-		//select Picture
-		$pictures = $this->Picture->find('all', array(
-			'fields' => array('picture', 'id'),
-		));
-		$select_pictures = array();
-		foreach ($pictures as $key => $picture)
-		{
-			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
-		}
+		
 
 		//select Brand
 		$brands = $this->Brand->find('all', array(
@@ -66,19 +58,25 @@ class AdminProductsController extends AppController
 
 		if ($this->request->is('post'))
         {
-			$data = array();
-        	$data['Product'] = $this->request->data['AdminProducts'];
+        	if($this->upload($this->request->data['AdminProducts']['image_file']) || isset($this->request->data['img']))
+            {
+            	$this->request->data['AdminProducts']['picture_id'] = (int) $this->Picture->getInsertID();
+                if(!empty($this->request->data['img'])) $this->request->data['AdminProducts']['picture_id'] = $this->request->data['img'];
 
-			if($this->Product->save($data, true))
-			{
-				$this->Session->setFlash('Produit ajouté', 'default', array('class' => 'alert btn-green'));
-				$id = $this->Product->getInsertID();
-                return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'. $id));
+				$data = array();
+	        	$data['Product'] = $this->request->data['AdminProducts'];
+
+				if($this->Product->save($data, true))
+				{
+					$this->Session->setFlash('Produit ajouté', 'default', array('class' => 'alert btn-green'));
+					$id = $this->Product->getInsertID();
+	                return $this->redirect(array('controller' => 'AdminProducts', 'action' => 'edit/'. $id));
+				}
+				$this->Session->setFlash('Informations invalides', 'default', array('class' => 'alert btn-red'));
 			}
-			$this->Session->setFlash('Informations invalides', 'default', array('class' => 'alert btn-red'));
 		}
-
-		$this->set(compact('select_pictures', 'select_categories', 'select_brands', 'select_promos'));
+		$pictures = $this->Picture->find('all', array('conditions' => array('Picture.status' => 0)));
+		$this->set(compact('pictures', 'select_categories', 'select_brands', 'select_promos'));
 	}
 
 	public function edit($id=null)
@@ -99,16 +97,6 @@ class AdminProductsController extends AppController
 			$select_categories[$category['Category']['id']] = $category['Category']['name'];
 		}
 
-		//select Picture
-		$pictures = $this->Picture->find('all', array(
-			'fields' => array('picture', 'id'),
-		));
-		$select_pictures = array();
-		foreach ($pictures as $key => $picture)
-		{
-			$select_pictures[$picture['Picture']['id']] = $picture['Picture']['picture'];
-		}
-
 		//select Brand
 		$brands = $this->Brand->find('all', array(
 			'fields' => array('name', 'id'),
@@ -131,6 +119,11 @@ class AdminProductsController extends AppController
 
 		if ($this->request->is('post'))
         {
+        	if(isset($this->request->data['AdminProducts']['image_file']) && $this->upload($this->request->data['AdminProducts']['image_file']))
+            {
+                $this->request->data['AdminProducts']['picture_id'] = (int) $this->Picture->getInsertID();
+            }
+            if(isset($this->request->data['img'])) $this->request->data['AdminProducts']['picture_id'] = $this->request->data['img'];
         	$this->Product->id = $id;
 			$data = array();
         	$data['Product'] = $this->request->data['AdminProducts'];
@@ -150,7 +143,7 @@ class AdminProductsController extends AppController
 		{
         	$this->request->data = $data;
     	}
-
-		$this->set(compact('product', 'select_pictures', 'select_categories', 'select_brands', 'select_promos'));
+    	$pictures = $this->Picture->find('all', array('conditions' => array('Picture.status' => 0)));
+		$this->set(compact('product', 'pictures', 'select_categories', 'select_brands', 'select_promos'));
 	}
 }
