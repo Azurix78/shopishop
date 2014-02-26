@@ -149,7 +149,7 @@ class OrdersController extends AppController
 		{
 			if(CakeSession::write('cart.promo', $promos))
 			{
-				echo json_encode(true);
+				echo json_encode($promos);
 			}
 			else
 			{
