@@ -4,7 +4,7 @@
 		<div id="ctn-order-items">
 			<div class="ctn-order-info">
 				<span class="line">Commande effectuée le : <?php echo $order['Order']['created']; ?></span>
-				<span class="line">Emballage cadeau : <?php echo ($order['Order']['gift_wrap'] == 1) ? 'Non' : 'Oui' ;?></span>
+				<span class="line">Emballage cadeau : <?php echo ($order['Order']['gift_wrap'] == 1) ? 'Oui' : 'Non' ;?></span>
 				<span class="line">
 					Status : 
 					<?php switch ($order['Order']['status'])
